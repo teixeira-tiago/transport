@@ -1,0 +1,306 @@
+object FCidades: TFCidades
+  Left = 301
+  Top = 202
+  Width = 370
+  Height = 347
+  BorderIcons = [biSystemMenu]
+  Caption = 'Cadastro de Cidades'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  FormStyle = fsMDIChild
+  Position = poMainFormCenter
+  Visible = True
+  OnClose = FormClose
+  PixelsPerInch = 96
+  object PageControl1: TPageControl
+    Left = 0
+    Top = 0
+    Width = 362
+    Height = 320
+    ActivePage = TabSheet1
+    Align = alClient
+    TabOrder = 0
+    object TabSheet1: TTabSheet
+      Caption = 'Cidades'
+      object Label1: TLabel
+        Left = 17
+        Top = 12
+        Width = 28
+        Height = 13
+        Caption = 'Nome'
+        FocusControl = DBEdit1
+      end
+      object Label3: TLabel
+        Left = 12
+        Top = 36
+        Width = 33
+        Height = 13
+        Caption = 'Estado'
+      end
+      object Label4: TLabel
+        Left = 277
+        Top = 36
+        Width = 14
+        Height = 13
+        Caption = 'UF'
+      end
+      object Label2: TLabel
+        Left = 3
+        Top = 60
+        Width = 82
+        Height = 13
+        Caption = 'Distancia de Ubá'
+      end
+      object Label5: TLabel
+        Left = 15
+        Top = 270
+        Width = 52
+        Height = 13
+        Caption = 'Localizar'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Panel1: TPanel
+        Left = 0
+        Top = 124
+        Width = 354
+        Height = 138
+        TabOrder = 5
+        object DBGrid1: TDBGrid
+          Left = 1
+          Top = 1
+          Width = 352
+          Height = 136
+          DataSource = DataSource1
+          Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgMultiSelect]
+          TabOrder = 0
+          TitleFont.Charset = DEFAULT_CHARSET
+          TitleFont.Color = clWindowText
+          TitleFont.Height = -11
+          TitleFont.Name = 'MS Sans Serif'
+          TitleFont.Style = []
+          Columns = <
+            item
+              Expanded = False
+              FieldName = 'NOMECID'
+              Title.Caption = 'Cidade'
+              Width = 230
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'DISTUBA'
+              Title.Caption = 'Distancia de Ubá'
+              Visible = True
+            end>
+        end
+      end
+      object Panel2: TPanel
+        Left = 0
+        Top = 83
+        Width = 354
+        Height = 41
+        TabOrder = 4
+        object DBNavigator1: TDBNavigator
+          Left = 127
+          Top = 8
+          Width = 100
+          Height = 25
+          DataSource = DataSource1
+          VisibleButtons = [nbInsert, nbDelete, nbPost, nbCancel]
+          Hints.Strings = (
+            'Primeiro Registro'
+            'Registro Anterior'
+            'Registro Seguinte'
+            'Ultimo Registro'
+            'Incluir Registro'
+            'Excluir Registro'
+            'Editar Registro'
+            'Gravar Registro'
+            'Cancelar Operação'
+            'Atualizar')
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 0
+          OnClick = DBNavigator1Click
+        end
+        object BitBtn1: TBitBtn
+          Left = 233
+          Top = 8
+          Width = 62
+          Height = 25
+          Hint = 'Close'
+          Caption = 'Fechar'
+          TabOrder = 1
+          OnClick = BitBtn1Click
+          Kind = bkClose
+        end
+      end
+      object DBEdit1: TDBEdit
+        Left = 48
+        Top = 8
+        Width = 276
+        Height = 21
+        DataField = 'NOMECID'
+        DataSource = DataSource1
+        TabOrder = 0
+        OnKeyPress = DBEdit1KeyPress
+      end
+      object DBEdit4: TDBEdit
+        Left = 294
+        Top = 32
+        Width = 30
+        Height = 21
+        DataField = 'SIGLAEST'
+        DataSource = DataSource2
+        TabOrder = 2
+        OnKeyPress = DBEdit1KeyPress
+      end
+      object DBLookupComboBox1: TDBLookupComboBox
+        Left = 48
+        Top = 32
+        Width = 204
+        Height = 21
+        DataField = 'CODEST'
+        DataSource = DataSource1
+        KeyField = 'CODEST'
+        ListField = 'NOMEEST'
+        ListSource = DataSource2
+        TabOrder = 1
+        OnDropDown = DBLookupComboBox1DropDown
+        OnKeyPress = DBEdit1KeyPress
+      end
+      object DBEdit2: TDBEdit
+        Left = 88
+        Top = 56
+        Width = 121
+        Height = 21
+        DataField = 'DISTUBA'
+        DataSource = DataSource1
+        TabOrder = 3
+        OnKeyPress = DBEdit1KeyPress
+      end
+      object Edit1: TEdit
+        Left = 70
+        Top = 266
+        Width = 150
+        Height = 21
+        TabOrder = 6
+        OnChange = Edit1Change
+      end
+    end
+  end
+  object DataSource1: TDataSource
+    DataSet = TCidade
+    Left = 28
+    Top = 220
+  end
+  object DataSource2: TDataSource
+    DataSet = TEstado
+    Left = 144
+    Top = 216
+  end
+  object TCidade: TSQLQuery
+    Database = FPrincipal.BasePrincipal
+    Transaction = FPrincipal.IBTransaction1
+    FieldDefs = <
+      item
+        Name = 'CODCID'
+        DataType = ftInteger
+      end
+      item
+        Name = 'CODEST'
+        DataType = ftInteger
+      end
+      item
+        Name = 'NOMECID'
+        DataType = ftString
+        Size = 30
+      end
+      item
+        Name = 'DISTUBA'
+        DataType = ftInteger
+      end>
+    IndexDefs = <
+      item
+        Name = 'RDB$PRIMARY4'
+        Fields = 'CODCID'
+        Options = [ixPrimary, ixUnique]
+      end
+      item
+        Name = 'INCID'
+        Fields = 'CODCID'
+        Options = [ixUnique]
+      end>
+    Left = 28
+    Top = 172
+    object TCidadeNOMECID: TIBStringField
+      FieldName = 'NOMECID'
+      Size = 30
+    end
+    object TCidadeCODCID: TIntegerField
+      FieldName = 'CODCID'
+    end
+    object TCidadeCODEST: TIntegerField
+      FieldName = 'CODEST'
+    end
+    object TCidadeDISTUBA: TIntegerField
+      FieldName = 'DISTUBA'
+    end
+  end
+  object TEstado: TSQLQuery
+    Database = FPrincipal.BasePrincipal
+    Transaction = FPrincipal.IBTransaction1
+    FieldDefs = <
+      item
+        Name = 'CODEST'
+        DataType = ftInteger
+      end
+      item
+        Name = 'NOMEEST'
+        DataType = ftString
+        Size = 15
+      end
+      item
+        Name = 'SIGLAEST'
+        DataType = ftString
+        Size = 2
+      end>
+    IndexDefs = <
+      item
+        Name = 'RDB$PRIMARY1'
+        Fields = 'CODEST'
+        Options = [ixPrimary, ixUnique]
+      end
+      item
+        Name = 'NOMEEST'
+        Fields = 'NOMEEST'
+      end
+      item
+        Name = 'SIGLAEST'
+        Fields = 'SIGLAEST'
+      end>
+    IndexName = 'NOMEEST'
+    Left = 144
+    Top = 172
+    object TEstadoCODEST: TIntegerField
+      FieldName = 'CODEST'
+    end
+    object TEstadoNOMEEST: TIBStringField
+      FieldName = 'NOMEEST'
+      Size = 15
+    end
+    object TEstadoSIGLAEST: TIBStringField
+      FieldName = 'SIGLAEST'
+      Size = 2
+    end
+  end
+end

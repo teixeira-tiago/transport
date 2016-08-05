@@ -1,0 +1,517 @@
+object FFornecedores: TFFornecedores
+  Left = 230
+  Top = 188
+  Width = 639
+  Height = 470
+  BorderIcons = [biSystemMenu]
+  Caption = 'Cadastro de Fornecedores'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  FormStyle = fsMDIChild
+  Position = poMainFormCenter
+  Visible = True
+  OnClose = FormClose
+  PixelsPerInch = 96
+  object PageControl1: TPageControl
+    Left = 0
+    Top = 0
+    Width = 631
+    Height = 443
+    ActivePage = TabSheet1
+    Align = alClient
+    TabOrder = 0
+    object TabSheet1: TTabSheet
+      Caption = 'Fornecedores'
+      object Label3: TLabel
+        Left = 231
+        Top = 12
+        Width = 28
+        Height = 13
+        Caption = 'Nome'
+        FocusControl = DBEdit2
+      end
+      object Label4: TLabel
+        Left = 41
+        Top = 36
+        Width = 31
+        Height = 13
+        Caption = 'Razão'
+        FocusControl = DBEdit3
+      end
+      object Label5: TLabel
+        Left = 26
+        Top = 61
+        Width = 46
+        Height = 13
+        Caption = 'Endereço'
+        FocusControl = DBEdit4
+      end
+      object Label6: TLabel
+        Left = 45
+        Top = 86
+        Width = 27
+        Height = 13
+        Caption = 'Bairro'
+        FocusControl = DBEdit5
+      end
+      object Label7: TLabel
+        Left = 322
+        Top = 86
+        Width = 33
+        Height = 13
+        Caption = 'Cidade'
+      end
+      object Label8: TLabel
+        Left = 40
+        Top = 111
+        Width = 33
+        Height = 13
+        Caption = 'Estado'
+      end
+      object Label9: TLabel
+        Left = 236
+        Top = 110
+        Width = 14
+        Height = 13
+        Caption = 'UF'
+        FocusControl = DBEdit7
+      end
+      object Label10: TLabel
+        Left = 295
+        Top = 111
+        Width = 24
+        Height = 13
+        Caption = 'Fone'
+        FocusControl = DBEdit6
+      end
+      object Label11: TLabel
+        Left = 447
+        Top = 110
+        Width = 32
+        Height = 13
+        Caption = 'Celular'
+        FocusControl = DBEdit8
+      end
+      object Label12: TLabel
+        Left = 329
+        Top = 161
+        Width = 28
+        Height = 13
+        Caption = 'E-mail'
+        FocusControl = DBEdit9
+      end
+      object Label13: TLabel
+        Left = 233
+        Top = 136
+        Width = 18
+        Height = 13
+        Caption = 'Site'
+        FocusControl = DBEdit10
+      end
+      object Label14: TLabel
+        Left = 52
+        Top = 135
+        Width = 21
+        Height = 13
+        Caption = 'CEP'
+        FocusControl = DBEdit11
+      end
+      object Label2: TLabel
+        Left = 2
+        Top = 161
+        Width = 84
+        Height = 13
+        Caption = 'Material fornecido'
+      end
+      object Panel1: TPanel
+        Left = 0
+        Top = 371
+        Width = 623
+        Height = 44
+        Align = alBottom
+        TabOrder = 17
+        object Label1: TLabel
+          Left = 9
+          Top = 15
+          Width = 56
+          Height = 13
+          Caption = 'Localizar:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Edit1: TEdit
+          Left = 69
+          Top = 11
+          Width = 165
+          Height = 21
+          TabOrder = 0
+          OnChange = Edit1Change
+        end
+      end
+      object Panel2: TPanel
+        Left = 0
+        Top = 228
+        Width = 623
+        Height = 143
+        Align = alBottom
+        TabOrder = 16
+        object DBGrid1: TDBGrid
+          Left = 1
+          Top = 1
+          Width = 621
+          Height = 141
+          Align = alClient
+          DataSource = DataSource1
+          TabOrder = 0
+          TitleFont.Charset = DEFAULT_CHARSET
+          TitleFont.Color = clWindowText
+          TitleFont.Height = -11
+          TitleFont.Name = 'MS Sans Serif'
+          TitleFont.Style = []
+          Columns = <
+            item
+              Expanded = False
+              FieldName = 'NOMEFORN'
+              Title.Caption = 'Fornecedor'
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'ENDERECOFORN'
+              Title.Caption = 'Endereço'
+              Width = 250
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'FONEFORN'
+              Title.Caption = 'Telefone'
+              Visible = True
+            end>
+        end
+      end
+      object Panel3: TPanel
+        Left = 0
+        Top = 187
+        Width = 623
+        Height = 41
+        Align = alBottom
+        TabOrder = 15
+        object DBNavigator1: TDBNavigator
+          Left = 261
+          Top = 8
+          Width = 100
+          Height = 25
+          DataSource = DataSource1
+          VisibleButtons = [nbInsert, nbDelete, nbPost, nbCancel]
+          Hints.Strings = (
+            'Primeiro Registro'
+            'Registro Anterior'
+            'Registro Seguinte'
+            'Ultimo Registro'
+            'Incluir Registro'
+            'Excluir Registro'
+            'Editar Registro'
+            'Gravar Registro'
+            'Cancelar Operação'
+            'Atualizar')
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 0
+          OnClick = DBNavigator1Click
+        end
+        object BitBtn1: TBitBtn
+          Left = 370
+          Top = 8
+          Width = 62
+          Height = 25
+          Hint = 'Close'
+          Caption = 'Fechar'
+          TabOrder = 1
+          OnClick = BitBtn1Click
+          Kind = bkClose
+        end
+      end
+      object DBEdit1: TDBEdit
+        Left = 103
+        Top = 8
+        Width = 113
+        Height = 21
+        DataField = 'DOCFORN'
+        DataSource = DataSource1
+        TabOrder = 1
+        OnClick = DBEdit1Click
+        OnExit = DBEdit1Exit
+        OnKeyPress = DBEdit1KeyPress
+      end
+      object DBEdit2: TDBEdit
+        Left = 263
+        Top = 8
+        Width = 336
+        Height = 21
+        DataField = 'NOMEFORN'
+        DataSource = DataSource1
+        TabOrder = 2
+        OnKeyPress = DBEdit1KeyPress
+      end
+      object DBEdit3: TDBEdit
+        Left = 75
+        Top = 32
+        Width = 524
+        Height = 21
+        DataField = 'RAZAOSFORN'
+        DataSource = DataSource1
+        TabOrder = 3
+        OnKeyPress = DBEdit1KeyPress
+      end
+      object DBEdit4: TDBEdit
+        Left = 75
+        Top = 57
+        Width = 524
+        Height = 21
+        DataField = 'ENDERECOFORN'
+        DataSource = DataSource1
+        TabOrder = 4
+        OnKeyPress = DBEdit1KeyPress
+      end
+      object DBEdit5: TDBEdit
+        Left = 75
+        Top = 82
+        Width = 233
+        Height = 21
+        DataField = 'BAIRROFORN'
+        DataSource = DataSource1
+        TabOrder = 5
+        OnKeyPress = DBEdit1KeyPress
+      end
+      object DBEdit7: TDBEdit
+        Left = 253
+        Top = 107
+        Width = 30
+        Height = 21
+        DataField = 'SIGLAEST'
+        DataSource = DataSource3
+        TabOrder = 8
+        OnKeyPress = DBEdit1KeyPress
+      end
+      object DBEdit6: TDBEdit
+        Left = 322
+        Top = 107
+        Width = 114
+        Height = 21
+        DataField = 'FONEFORN'
+        DataSource = DataSource1
+        TabOrder = 9
+        OnKeyPress = DBEdit1KeyPress
+      end
+      object DBEdit8: TDBEdit
+        Left = 481
+        Top = 107
+        Width = 119
+        Height = 21
+        DataField = 'CELULARFORN'
+        DataSource = DataSource1
+        TabOrder = 10
+        OnKeyPress = DBEdit1KeyPress
+      end
+      object DBEdit9: TDBEdit
+        Left = 253
+        Top = 132
+        Width = 348
+        Height = 21
+        DataField = 'SITEFORN'
+        DataSource = DataSource1
+        TabOrder = 12
+        OnKeyPress = DBEdit1KeyPress
+      end
+      object DBEdit10: TDBEdit
+        Left = 360
+        Top = 157
+        Width = 242
+        Height = 21
+        DataField = 'EMAILFORN'
+        DataSource = DataSource1
+        TabOrder = 14
+        OnKeyPress = DBEdit1KeyPress
+      end
+      object DBEdit11: TDBEdit
+        Left = 76
+        Top = 132
+        Width = 134
+        Height = 21
+        DataField = 'CEPFORN'
+        DataSource = DataSource1
+        TabOrder = 11
+        OnKeyPress = DBEdit1KeyPress
+      end
+      object DBLookupComboBox1: TDBLookupComboBox
+        Left = 358
+        Top = 82
+        Width = 242
+        Height = 21
+        DataField = 'CODCID'
+        DataSource = DataSource1
+        KeyField = 'CODCID'
+        ListField = 'NOMECID'
+        ListSource = DataSource2
+        TabOrder = 6
+        OnDropDown = DBLookupComboBox1DropDown
+        OnKeyPress = DBEdit1KeyPress
+      end
+      object DBLookupComboBox2: TDBLookupComboBox
+        Left = 76
+        Top = 107
+        Width = 148
+        Height = 21
+        DataField = 'CODEST'
+        DataSource = DataSource1
+        KeyField = 'CODEST'
+        ListField = 'NOMEEST'
+        ListSource = DataSource3
+        TabOrder = 7
+        OnDropDown = DBLookupComboBox2DropDown
+        OnKeyPress = DBEdit1KeyPress
+      end
+      object RadioGroup2: TRadioGroup
+        Left = 0
+        Top = -2
+        Width = 105
+        Height = 33
+        Columns = 2
+        ItemIndex = 1
+        Items.Strings = (
+          'CNPJ'
+          'CPF')
+        TabOrder = 0
+      end
+      object DBEdit12: TDBEdit
+        Left = 88
+        Top = 157
+        Width = 228
+        Height = 21
+        DataField = 'TIPOFORN'
+        DataSource = DataSource1
+        TabOrder = 13
+        OnKeyPress = DBEdit1KeyPress
+      end
+    end
+  end
+  object DataSource1: TDataSource
+    DataSet = TFornecedores
+    Left = 28
+    Top = 392
+  end
+  object DataSource2: TDataSource
+    DataSet = TCidade
+    Left = 100
+    Top = 396
+  end
+  object DataSource3: TDataSource
+    DataSet = TEstado
+    Left = 168
+    Top = 400
+  end
+  object TFornecedores: TSQLQuery
+    Database = FPrincipal.BasePrincipal
+    Transaction = FPrincipal.IBTransaction1
+    Left = 32
+    Top = 336
+    object TFornecedoresCODFORN: TIntegerField
+      FieldName = 'CODFORN'
+    end
+    object TFornecedoresCODCID: TIntegerField
+      FieldName = 'CODCID'
+    end
+    object TFornecedoresCODEST: TIntegerField
+      FieldName = 'CODEST'
+    end
+    object TFornecedoresDOCFORN: TIBStringField
+      FieldName = 'DOCFORN'
+    end
+    object TFornecedoresNOMEFORN: TIBStringField
+      FieldName = 'NOMEFORN'
+      Size = 40
+    end
+    object TFornecedoresRAZAOSFORN: TIBStringField
+      FieldName = 'RAZAOSFORN'
+      Size = 40
+    end
+    object TFornecedoresENDERECOFORN: TIBStringField
+      FieldName = 'ENDERECOFORN'
+      Size = 40
+    end
+    object TFornecedoresBAIRROFORN: TIBStringField
+      FieldName = 'BAIRROFORN'
+      Size = 40
+    end
+    object TFornecedoresCEPFORN: TIBStringField
+      FieldName = 'CEPFORN'
+      EditMask = '00000\-999;1;_'
+      Size = 10
+    end
+    object TFornecedoresFONEFORN: TIBStringField
+      FieldName = 'FONEFORN'
+      EditMask = '!\(99\)0000-0000;1;_'
+      Size = 15
+    end
+    object TFornecedoresCELULARFORN: TIBStringField
+      FieldName = 'CELULARFORN'
+      EditMask = '!\(99\)0000-0000;1;_'
+      Size = 15
+    end
+    object TFornecedoresEMAILFORN: TIBStringField
+      FieldName = 'EMAILFORN'
+      Size = 40
+    end
+    object TFornecedoresSITEFORN: TIBStringField
+      FieldName = 'SITEFORN'
+      Size = 80
+    end
+    object TFornecedoresTIPOFORN: TIBStringField
+      FieldName = 'TIPOFORN'
+    end
+  end
+  object TCidade: TSQLQuery
+    Database = FPrincipal.BasePrincipal
+    Transaction = FPrincipal.IBTransaction1
+    IndexName = 'NOMECID'
+    Left = 100
+    Top = 344
+    object TCidadeCODCID: TIntegerField
+      FieldName = 'CODCID'
+    end
+    object TCidadeCODEST: TIntegerField
+      FieldName = 'CODEST'
+    end
+    object TCidadeNOMECID: TIBStringField
+      FieldName = 'NOMECID'
+      Size = 30
+    end
+  end
+  object TEstado: TSQLQuery
+    Database = FPrincipal.BasePrincipal
+    Transaction = FPrincipal.IBTransaction1
+    IndexName = 'NOMEEST'
+    Left = 164
+    Top = 340
+    object TEstadoCODEST: TIntegerField
+      FieldName = 'CODEST'
+    end
+    object TEstadoNOMEEST: TIBStringField
+      FieldName = 'NOMEEST'
+      Size = 15
+    end
+    object TEstadoSIGLAEST: TIBStringField
+      FieldName = 'SIGLAEST'
+      Size = 2
+    end
+  end
+end

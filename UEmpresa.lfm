@@ -1,0 +1,481 @@
+object FEmpresa: TFEmpresa
+  Left = 412
+  Top = 170
+  Width = 447
+  Height = 434
+  BorderIcons = [biSystemMenu]
+  Caption = 'Cadastro de Empresas'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  FormStyle = fsMDIChild
+  Position = poMainFormCenter
+  Visible = True
+  OnClose = FormClose
+  PixelsPerInch = 96
+  object PageControl1: TPageControl
+    Left = 0
+    Top = 0
+    Width = 439
+    Height = 407
+    ActivePage = TabSheet1
+    Align = alClient
+    TabOrder = 0
+    object TabSheet1: TTabSheet
+      Caption = 'Empresas'
+      object Label1: TLabel
+        Left = 26
+        Top = 14
+        Width = 28
+        Height = 13
+        Caption = 'Nome'
+        FocusControl = DBEdit1
+      end
+      object Label2: TLabel
+        Left = 10
+        Top = 36
+        Width = 44
+        Height = 13
+        Caption = 'Atividade'
+        FocusControl = DBEdit2
+      end
+      object Label3: TLabel
+        Left = 8
+        Top = 60
+        Width = 46
+        Height = 13
+        Caption = 'Endereço'
+        FocusControl = DBEdit3
+      end
+      object Label4: TLabel
+        Left = 313
+        Top = 60
+        Width = 21
+        Height = 13
+        Caption = 'CEP'
+        FocusControl = DBEdit4
+      end
+      object Label5: TLabel
+        Left = 27
+        Top = 84
+        Width = 27
+        Height = 13
+        Caption = 'Bairro'
+        FocusControl = DBEdit5
+      end
+      object Label6: TLabel
+        Left = 247
+        Top = 84
+        Width = 33
+        Height = 13
+        Caption = 'Cidade'
+      end
+      object Label7: TLabel
+        Left = 21
+        Top = 108
+        Width = 33
+        Height = 13
+        Caption = 'Estado'
+      end
+      object Label8: TLabel
+        Left = 215
+        Top = 108
+        Width = 14
+        Height = 13
+        Caption = 'UF'
+      end
+      object Label9: TLabel
+        Left = 278
+        Top = 108
+        Width = 24
+        Height = 13
+        Caption = 'Fone'
+        FocusControl = DBEdit7
+      end
+      object Label10: TLabel
+        Left = 26
+        Top = 132
+        Width = 28
+        Height = 13
+        Caption = 'E-mail'
+        FocusControl = DBEdit8
+      end
+      object Label11: TLabel
+        Left = 35
+        Top = 156
+        Width = 18
+        Height = 13
+        Caption = 'Site'
+        FocusControl = DBEdit9
+      end
+      object Panel1: TPanel
+        Left = 0
+        Top = 225
+        Width = 431
+        Height = 154
+        Align = alBottom
+        TabOrder = 12
+        object DBGrid1: TDBGrid
+          Left = 1
+          Top = 1
+          Width = 429
+          Height = 152
+          Align = alClient
+          DataSource = dsEmpresa
+          TabOrder = 0
+          TitleFont.Charset = DEFAULT_CHARSET
+          TitleFont.Color = clWindowText
+          TitleFont.Height = -11
+          TitleFont.Name = 'MS Sans Serif'
+          TitleFont.Style = []
+          Columns = <
+            item
+              Expanded = False
+              FieldName = 'NOMEFAB'
+              Title.Caption = 'Empresa'
+              Width = 175
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'TIPOPROD'
+              Title.Caption = 'Ramo / Atividade'
+              Width = 150
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'FONEFAB'
+              Title.Caption = 'Telefone'
+              Width = 70
+              Visible = True
+            end>
+        end
+      end
+      object Panel2: TPanel
+        Left = 0
+        Top = 184
+        Width = 431
+        Height = 41
+        Align = alBottom
+        TabOrder = 11
+        object DBNavigator1: TDBNavigator
+          Left = 132
+          Top = 8
+          Width = 100
+          Height = 25
+          DataSource = dsEmpresa
+          VisibleButtons = [nbInsert, nbDelete, nbPost, nbCancel]
+          Hints.Strings = (
+            'Primeiro Registro'
+            'Registro Anterior'
+            'Registro Seguinte'
+            'Ultimo Registro'
+            'Incluir Registro'
+            'Excluir Registro'
+            'Editar Registro'
+            'Gravar Registro'
+            'Cancelar Operação'
+            'Atualizar')
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 0
+          OnClick = DBNavigator1Click
+        end
+        object BitBtn1: TBitBtn
+          Left = 236
+          Top = 8
+          Width = 62
+          Height = 25
+          Hint = 'Close'
+          Caption = 'Fechar'
+          TabOrder = 1
+          OnClick = BitBtn1Click
+          Kind = bkClose
+        end
+      end
+      object DBEdit1: TDBEdit
+        Left = 57
+        Top = 9
+        Width = 356
+        Height = 21
+        DataField = 'NOMEFAB'
+        DataSource = dsEmpresa
+        TabOrder = 0
+        OnKeyPress = DBEdit1KeyPress
+      end
+      object DBEdit2: TDBEdit
+        Left = 57
+        Top = 32
+        Width = 356
+        Height = 21
+        DataField = 'TIPOPROD'
+        DataSource = dsEmpresa
+        TabOrder = 1
+        OnKeyPress = DBEdit1KeyPress
+      end
+      object DBEdit3: TDBEdit
+        Left = 57
+        Top = 56
+        Width = 251
+        Height = 21
+        DataField = 'ENDERECOFAB'
+        DataSource = dsEmpresa
+        TabOrder = 2
+        OnKeyPress = DBEdit1KeyPress
+      end
+      object DBEdit4: TDBEdit
+        Left = 337
+        Top = 56
+        Width = 76
+        Height = 21
+        DataField = 'CEPFAB'
+        DataSource = dsEmpresa
+        TabOrder = 3
+        OnKeyPress = DBEdit1KeyPress
+      end
+      object DBEdit5: TDBEdit
+        Left = 57
+        Top = 80
+        Width = 177
+        Height = 21
+        DataField = 'BAIRROFAB'
+        DataSource = dsEmpresa
+        TabOrder = 4
+        OnKeyPress = DBEdit1KeyPress
+      end
+      object DBLookupComboBox1: TDBLookupComboBox
+        Left = 283
+        Top = 80
+        Width = 131
+        Height = 21
+        DataField = 'CODCID'
+        DataSource = dsEmpresa
+        KeyField = 'CODCID'
+        ListField = 'NOMECID'
+        ListSource = dsCidade
+        TabOrder = 5
+        OnDropDown = DBLookupComboBox1DropDown
+        OnKeyPress = DBEdit1KeyPress
+      end
+      object DBLookupComboBox2: TDBLookupComboBox
+        Left = 57
+        Top = 104
+        Width = 144
+        Height = 21
+        DataField = 'CODEST'
+        DataSource = dsEmpresa
+        KeyField = 'CODEST'
+        ListField = 'NOMEEST'
+        ListSource = dsEstado
+        TabOrder = 6
+        OnDropDown = DBLookupComboBox2DropDown
+        OnKeyPress = DBEdit1KeyPress
+      end
+      object DBEdit6: TDBEdit
+        Left = 232
+        Top = 104
+        Width = 30
+        Height = 21
+        DataField = 'SIGLAEST'
+        DataSource = dsEstado
+        TabOrder = 7
+        OnKeyPress = DBEdit1KeyPress
+      end
+      object DBEdit7: TDBEdit
+        Left = 305
+        Top = 104
+        Width = 109
+        Height = 21
+        DataField = 'FONEFAB'
+        DataSource = dsEmpresa
+        TabOrder = 8
+        OnKeyPress = DBEdit1KeyPress
+      end
+      object DBEdit8: TDBEdit
+        Left = 57
+        Top = 128
+        Width = 357
+        Height = 21
+        DataField = 'EMAILFAB'
+        DataSource = dsEmpresa
+        TabOrder = 9
+        OnKeyPress = DBEdit1KeyPress
+      end
+      object DBEdit9: TDBEdit
+        Left = 57
+        Top = 152
+        Width = 357
+        Height = 21
+        DataField = 'SITEFAB'
+        DataSource = dsEmpresa
+        TabOrder = 10
+        OnKeyPress = DBEdit1KeyPress
+      end
+    end
+  end
+  object dsEmpresa: TDataSource
+    DataSet = TEmpresa
+    Left = 232
+    Top = 272
+  end
+  object TEmpresa: TSQLQuery
+    Database = FPrincipal.BasePrincipal
+    Transaction = FPrincipal.IBTransaction1
+    FieldDefs = <
+      item
+        Name = 'CODFAB'
+        DataType = ftInteger
+      end
+      item
+        Name = 'NOMEFAB'
+        DataType = ftString
+        Size = 40
+      end
+      item
+        Name = 'TIPOPROD'
+        DataType = ftString
+        Size = 40
+      end
+      item
+        Name = 'CODCID'
+        DataType = ftInteger
+      end
+      item
+        Name = 'CODEST'
+        DataType = ftInteger
+      end
+      item
+        Name = 'ENDERECOFAB'
+        DataType = ftString
+        Size = 40
+      end
+      item
+        Name = 'BAIRROFAB'
+        DataType = ftString
+        Size = 40
+      end
+      item
+        Name = 'CEPFAB'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'FONEFAB'
+        DataType = ftString
+        Size = 15
+      end
+      item
+        Name = 'EMAILFAB'
+        DataType = ftString
+        Size = 40
+      end
+      item
+        Name = 'SITEFAB'
+        DataType = ftString
+        Size = 80
+      end>
+    IndexDefs = <
+      item
+        Name = 'RDB$PRIMARY36'
+        Fields = 'CODFAB'
+        Options = [ixPrimary, ixUnique]
+      end>
+    Left = 224
+    Top = 208
+    object TEmpresaCODFAB: TIntegerField
+      FieldName = 'CODFAB'
+    end
+    object TEmpresaNOMEFAB: TIBStringField
+      FieldName = 'NOMEFAB'
+      Size = 40
+    end
+    object TEmpresaTIPOPROD: TIBStringField
+      FieldName = 'TIPOPROD'
+      Size = 40
+    end
+    object TEmpresaCODCID: TIntegerField
+      FieldName = 'CODCID'
+    end
+    object TEmpresaCODEST: TIntegerField
+      FieldName = 'CODEST'
+    end
+    object TEmpresaENDERECOFAB: TIBStringField
+      FieldName = 'ENDERECOFAB'
+      Size = 40
+    end
+    object TEmpresaBAIRROFAB: TIBStringField
+      FieldName = 'BAIRROFAB'
+      Size = 40
+    end
+    object TEmpresaCEPFAB: TIBStringField
+      FieldName = 'CEPFAB'
+      EditMask = '00000\-999;1;_'
+      Size = 10
+    end
+    object TEmpresaFONEFAB: TIBStringField
+      FieldName = 'FONEFAB'
+      EditMask = '!\(99\)0000-0000;1;_'
+      Size = 15
+    end
+    object TEmpresaEMAILFAB: TIBStringField
+      FieldName = 'EMAILFAB'
+      Size = 40
+    end
+    object TEmpresaSITEFAB: TIBStringField
+      FieldName = 'SITEFAB'
+      Size = 80
+    end
+  end
+  object TCidade: TSQLQuery
+    Database = FPrincipal.BasePrincipal
+    Transaction = FPrincipal.IBTransaction1
+    IndexName = 'NOMECID'
+    Left = 316
+    Top = 216
+    object TCidadeCODCID: TIntegerField
+      FieldName = 'CODCID'
+    end
+    object TCidadeCODEST: TIntegerField
+      FieldName = 'CODEST'
+    end
+    object TCidadeNOMECID: TIBStringField
+      FieldName = 'NOMECID'
+      Size = 30
+    end
+    object TCidadeDISTUBA: TIntegerField
+      FieldName = 'DISTUBA'
+    end
+  end
+  object TEstado: TSQLQuery
+    Database = FPrincipal.BasePrincipal
+    Transaction = FPrincipal.IBTransaction1
+    IndexName = 'NOMEEST'
+    Left = 384
+    Top = 216
+    object TEstadoCODEST: TIntegerField
+      FieldName = 'CODEST'
+    end
+    object TEstadoNOMEEST: TIBStringField
+      FieldName = 'NOMEEST'
+      Size = 15
+    end
+    object TEstadoSIGLAEST: TIBStringField
+      FieldName = 'SIGLAEST'
+      Size = 2
+    end
+  end
+  object dsCidade: TDataSource
+    DataSet = TCidade
+    Left = 316
+    Top = 268
+  end
+  object dsEstado: TDataSource
+    DataSet = TEstado
+    Left = 396
+    Top = 268
+  end
+end

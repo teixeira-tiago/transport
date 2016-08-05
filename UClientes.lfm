@@ -1,0 +1,469 @@
+object FClientes: TFClientes
+  Left = 261
+  Top = 183
+  Width = 718
+  Height = 457
+  BorderIcons = [biSystemMenu]
+  Caption = 'Cadastro de Clientes'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  FormStyle = fsMDIChild
+  Position = poMainFormCenter
+  Visible = True
+  OnClose = FormClose
+  PixelsPerInch = 96
+  object PageControl1: TPageControl
+    Left = 0
+    Top = 0
+    Width = 710
+    Height = 430
+    ActivePage = TabSheet1
+    Align = alClient
+    TabOrder = 0
+    object TabSheet1: TTabSheet
+      Caption = 'Clientes'
+      object Label3: TLabel
+        Left = 30
+        Top = 16
+        Width = 28
+        Height = 13
+        Caption = 'Nome'
+        FocusControl = DBEdit2
+      end
+      object Label4: TLabel
+        Left = 12
+        Top = 41
+        Width = 46
+        Height = 13
+        Caption = 'Endereço'
+        FocusControl = DBEdit3
+      end
+      object Label5: TLabel
+        Left = 389
+        Top = 41
+        Width = 27
+        Height = 13
+        Caption = 'Bairro'
+        FocusControl = DBEdit4
+      end
+      object Label6: TLabel
+        Left = 249
+        Top = 90
+        Width = 42
+        Height = 13
+        Caption = 'Telefone'
+        FocusControl = DBEdit5
+      end
+      object Label7: TLabel
+        Left = 484
+        Top = 91
+        Width = 32
+        Height = 13
+        Caption = 'Celular'
+        FocusControl = DBEdit6
+      end
+      object Label8: TLabel
+        Left = 30
+        Top = 115
+        Width = 27
+        Height = 13
+        Caption = 'e-mail'
+        FocusControl = DBEdit7
+      end
+      object Label9: TLabel
+        Left = 24
+        Top = 66
+        Width = 33
+        Height = 13
+        Caption = 'Cidade'
+      end
+      object Label10: TLabel
+        Left = 601
+        Top = 66
+        Width = 14
+        Height = 13
+        Caption = 'UF'
+        FocusControl = DBEdit8
+      end
+      object Label11: TLabel
+        Left = 362
+        Top = 66
+        Width = 33
+        Height = 13
+        Caption = 'Estado'
+      end
+      object Label12: TLabel
+        Left = 36
+        Top = 91
+        Width = 21
+        Height = 13
+        Caption = 'CEP'
+        FocusControl = DBEdit9
+      end
+      object Panel1: TPanel
+        Left = 0
+        Top = 345
+        Width = 702
+        Height = 57
+        Align = alBottom
+        TabOrder = 14
+        object Label1: TLabel
+          Left = 7
+          Top = 23
+          Width = 56
+          Height = 13
+          Caption = 'Localizar:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Edit1: TEdit
+          Left = 67
+          Top = 19
+          Width = 165
+          Height = 21
+          TabOrder = 0
+          OnChange = Edit1Change
+        end
+      end
+      object Panel2: TPanel
+        Left = 0
+        Top = 181
+        Width = 702
+        Height = 164
+        Align = alBottom
+        TabOrder = 13
+        object DBGrid1: TDBGrid
+          Left = 1
+          Top = 1
+          Width = 700
+          Height = 162
+          Align = alClient
+          DataSource = DataSource1
+          TabOrder = 0
+          TitleFont.Charset = DEFAULT_CHARSET
+          TitleFont.Color = clWindowText
+          TitleFont.Height = -11
+          TitleFont.Name = 'MS Sans Serif'
+          TitleFont.Style = []
+          Columns = <
+            item
+              Expanded = False
+              FieldName = 'NOMECLI'
+              Title.Caption = 'Cliente'
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'ENDERECOCLI'
+              Title.Caption = 'Endereço'
+              Width = 230
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'FONECLI'
+              Title.Caption = 'Telefone'
+              Width = 70
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'CELULARCLI'
+              Title.Caption = 'Celular'
+              Width = 70
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'CEPCLI'
+              Title.Caption = 'CEP'
+              Width = 50
+              Visible = True
+            end>
+        end
+      end
+      object Panel3: TPanel
+        Left = 0
+        Top = 140
+        Width = 702
+        Height = 41
+        Align = alBottom
+        TabOrder = 12
+        object DBNavigator1: TDBNavigator
+          Left = 302
+          Top = 8
+          Width = 100
+          Height = 25
+          DataSource = DataSource1
+          VisibleButtons = [nbInsert, nbDelete, nbPost, nbCancel]
+          Hints.Strings = (
+            'Primeiro Registro'
+            'Registro Anterior'
+            'Registro Seguinte'
+            'Ultimo Registro'
+            'Incluir Registro'
+            'Excluir Registro'
+            'Editar Registro'
+            'Gravar Registro'
+            'Cancelar Operação'
+            'Atualizar')
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 0
+          OnClick = DBNavigator1Click
+        end
+        object BitBtn1: TBitBtn
+          Left = 409
+          Top = 8
+          Width = 62
+          Height = 25
+          Hint = 'Close'
+          Caption = 'Fechar'
+          TabOrder = 1
+          OnClick = BitBtn1Click
+          Kind = bkClose
+        end
+      end
+      object DBEdit1: TDBEdit
+        Left = 508
+        Top = 12
+        Width = 139
+        Height = 21
+        DataField = 'DOCCLI'
+        DataSource = DataSource1
+        TabOrder = 2
+        OnClick = DBEdit1Click
+        OnExit = DBEdit1Exit
+        OnKeyPress = DBEdit2KeyPress
+      end
+      object DBEdit2: TDBEdit
+        Left = 61
+        Top = 12
+        Width = 334
+        Height = 21
+        DataField = 'NOMECLI'
+        DataSource = DataSource1
+        TabOrder = 0
+        OnKeyPress = DBEdit2KeyPress
+      end
+      object DBEdit3: TDBEdit
+        Left = 61
+        Top = 37
+        Width = 306
+        Height = 21
+        DataField = 'ENDERECOCLI'
+        DataSource = DataSource1
+        TabOrder = 3
+        OnKeyPress = DBEdit2KeyPress
+      end
+      object DBEdit4: TDBEdit
+        Left = 419
+        Top = 37
+        Width = 229
+        Height = 21
+        DataField = 'BAIRROCLI'
+        DataSource = DataSource1
+        TabOrder = 4
+        OnKeyPress = DBEdit2KeyPress
+      end
+      object DBEdit5: TDBEdit
+        Left = 295
+        Top = 87
+        Width = 143
+        Height = 21
+        DataField = 'FONECLI'
+        DataSource = DataSource1
+        TabOrder = 9
+        OnKeyPress = DBEdit2KeyPress
+      end
+      object DBEdit6: TDBEdit
+        Left = 519
+        Top = 87
+        Width = 130
+        Height = 21
+        DataField = 'CELULARCLI'
+        DataSource = DataSource1
+        TabOrder = 10
+        OnKeyPress = DBEdit2KeyPress
+      end
+      object DBEdit7: TDBEdit
+        Left = 60
+        Top = 112
+        Width = 260
+        Height = 21
+        DataField = 'EMAILCLI'
+        DataSource = DataSource1
+        TabOrder = 11
+        OnKeyPress = DBEdit2KeyPress
+      end
+      object DBEdit8: TDBEdit
+        Left = 618
+        Top = 62
+        Width = 30
+        Height = 21
+        DataField = 'SIGLAEST'
+        DataSource = DataSource3
+        TabOrder = 7
+        OnKeyPress = DBEdit2KeyPress
+      end
+      object DBLookupComboBox1: TDBLookupComboBox
+        Left = 60
+        Top = 62
+        Width = 289
+        Height = 21
+        DataField = 'CODCID'
+        DataSource = DataSource1
+        KeyField = 'CODCID'
+        ListField = 'NOMECID'
+        ListSource = DataSource2
+        TabOrder = 5
+        OnDropDown = DBLookupComboBox1DropDown
+        OnKeyPress = DBEdit2KeyPress
+      end
+      object DBLookupComboBox2: TDBLookupComboBox
+        Left = 398
+        Top = 62
+        Width = 178
+        Height = 21
+        DataField = 'CODEST'
+        DataSource = DataSource1
+        KeyField = 'CODEST'
+        ListField = 'NOMEEST'
+        ListSource = DataSource3
+        TabOrder = 6
+        OnDropDown = DBLookupComboBox2DropDown
+        OnKeyPress = DBEdit2KeyPress
+      end
+      object DBEdit9: TDBEdit
+        Left = 60
+        Top = 87
+        Width = 141
+        Height = 21
+        DataField = 'CEPCLI'
+        DataSource = DataSource1
+        TabOrder = 8
+        OnKeyPress = DBEdit2KeyPress
+      end
+      object RadioGroup2: TRadioGroup
+        Left = 403
+        Top = 1
+        Width = 105
+        Height = 33
+        Columns = 2
+        ItemIndex = 1
+        Items.Strings = (
+          'CNPJ'
+          'CPF')
+        TabOrder = 1
+      end
+    end
+  end
+  object DataSource1: TDataSource
+    DataSet = TClientes
+    Left = 32
+    Top = 304
+  end
+  object DataSource2: TDataSource
+    DataSet = TCidade
+    Left = 104
+    Top = 308
+  end
+  object DataSource3: TDataSource
+    DataSet = TEstado
+    Left = 184
+    Top = 312
+  end
+  object TClientes: TSQLQuery
+    Database = FPrincipal.BasePrincipal
+    Transaction = FPrincipal.IBTransaction1
+    IndexFieldNames = 'CODEST'
+    Left = 36
+    Top = 256
+    object TClientesCODCLI: TIntegerField
+      FieldName = 'CODCLI'
+    end
+    object TClientesCODCID: TIntegerField
+      FieldName = 'CODCID'
+    end
+    object TClientesCODEST: TIntegerField
+      FieldName = 'CODEST'
+    end
+    object TClientesDOCCLI: TIBStringField
+      FieldName = 'DOCCLI'
+    end
+    object TClientesNOMECLI: TIBStringField
+      FieldName = 'NOMECLI'
+      Size = 40
+    end
+    object TClientesENDERECOCLI: TIBStringField
+      FieldName = 'ENDERECOCLI'
+      Size = 50
+    end
+    object TClientesBAIRROCLI: TIBStringField
+      FieldName = 'BAIRROCLI'
+      Size = 40
+    end
+    object TClientesCEPCLI: TIBStringField
+      FieldName = 'CEPCLI'
+      EditMask = '00000\-999;1;_'
+      Size = 10
+    end
+    object TClientesFONECLI: TIBStringField
+      FieldName = 'FONECLI'
+      EditMask = '!\(99\)0000-0000;1;_'
+      Size = 15
+    end
+    object TClientesCELULARCLI: TIBStringField
+      FieldName = 'CELULARCLI'
+      EditMask = '!\(99\)000-0000;1;_'
+      Size = 15
+    end
+    object TClientesEMAILCLI: TIBStringField
+      FieldName = 'EMAILCLI'
+      Size = 40
+    end
+  end
+  object TCidade: TSQLQuery
+    Database = FPrincipal.BasePrincipal
+    Transaction = FPrincipal.IBTransaction1
+    IndexName = 'NOMECID'
+    Left = 104
+    Top = 256
+    object TCidadeCODCID: TIntegerField
+      FieldName = 'CODCID'
+    end
+    object TCidadeCODEST: TIntegerField
+      FieldName = 'CODEST'
+    end
+    object TCidadeNOMECID: TIBStringField
+      FieldName = 'NOMECID'
+      Size = 30
+    end
+  end
+  object TEstado: TSQLQuery
+    Database = FPrincipal.BasePrincipal
+    Transaction = FPrincipal.IBTransaction1
+    IndexName = 'NOMEEST'
+    Left = 180
+    Top = 264
+    object TEstadoCODEST: TIntegerField
+      FieldName = 'CODEST'
+    end
+    object TEstadoNOMEEST: TIBStringField
+      FieldName = 'NOMEEST'
+      Size = 15
+    end
+    object TEstadoSIGLAEST: TIBStringField
+      FieldName = 'SIGLAEST'
+      Size = 2
+    end
+  end
+end

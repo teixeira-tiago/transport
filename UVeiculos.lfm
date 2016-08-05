@@ -1,0 +1,328 @@
+object FVeiculos: TFVeiculos
+  Left = 227
+  Top = 201
+  Width = 628
+  Height = 395
+  BorderIcons = [biSystemMenu]
+  Caption = 'Cadastro de Veiculos'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  FormStyle = fsMDIChild
+  Position = poMainFormCenter
+  Visible = True
+  OnClose = FormClose
+  PixelsPerInch = 96
+  object PageControl1: TPageControl
+    Left = 0
+    Top = 0
+    Width = 620
+    Height = 368
+    ActivePage = TabSheet1
+    Align = alClient
+    TabOrder = 0
+    object TabSheet1: TTabSheet
+      Caption = 'Veiculos'
+      object Label1: TLabel
+        Left = 18
+        Top = 12
+        Width = 31
+        Height = 13
+        Caption = 'Chassi'
+        FocusControl = DBEdit1
+      end
+      object Label2: TLabel
+        Left = 424
+        Top = 13
+        Width = 27
+        Height = 13
+        Caption = 'Placa'
+        FocusControl = DBEdit2
+      end
+      object Label3: TLabel
+        Left = 19
+        Top = 37
+        Width = 30
+        Height = 13
+        Caption = 'Marca'
+        FocusControl = DBEdit3
+      end
+      object Label4: TLabel
+        Left = 338
+        Top = 38
+        Width = 35
+        Height = 13
+        Caption = 'Modelo'
+        FocusControl = DBEdit4
+      end
+      object Label5: TLabel
+        Left = 21
+        Top = 62
+        Width = 28
+        Height = 13
+        Caption = 'Nome'
+        FocusControl = DBEdit5
+      end
+      object Label6: TLabel
+        Left = 338
+        Top = 62
+        Width = 19
+        Height = 13
+        Caption = 'Ano'
+        FocusControl = DBEdit6
+      end
+      object Label7: TLabel
+        Left = 20
+        Top = 88
+        Width = 60
+        Height = 13
+        Caption = 'Procedencia'
+        FocusControl = DBEdit7
+      end
+      object Panel1: TPanel
+        Left = 0
+        Top = 163
+        Width = 612
+        Height = 177
+        Align = alBottom
+        TabOrder = 9
+        object DBGrid1: TDBGrid
+          Left = 1
+          Top = 1
+          Width = 610
+          Height = 175
+          Align = alClient
+          DataSource = DataSource1
+          TabOrder = 0
+          TitleFont.Charset = DEFAULT_CHARSET
+          TitleFont.Color = clWindowText
+          TitleFont.Height = -11
+          TitleFont.Name = 'MS Sans Serif'
+          TitleFont.Style = []
+          Columns = <
+            item
+              Expanded = False
+              FieldName = 'PLACA'
+              Title.Caption = 'Placa'
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'CHASSI'
+              Title.Caption = 'Chassi'
+              Width = 150
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'ANOVEIC'
+              Title.Caption = 'Ano'
+              Width = 50
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'MODELOVEIC'
+              Title.Caption = 'Modelo'
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'MARCAVEIC'
+              Title.Caption = 'Marca'
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'PROCEDVEIC'
+              Title.Caption = 'Procedencia'
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'TERCEIRIZADO'
+              PickList.Strings = (
+                '0 - Não'
+                '1 - Sim')
+              Title.Caption = 'Terceirizado'
+              Visible = True
+            end>
+        end
+      end
+      object Panel2: TPanel
+        Left = 0
+        Top = 122
+        Width = 612
+        Height = 41
+        Align = alBottom
+        TabOrder = 8
+        object DBNavigator1: TDBNavigator
+          Left = 256
+          Top = 8
+          Width = 100
+          Height = 25
+          DataSource = DataSource1
+          VisibleButtons = [nbInsert, nbDelete, nbPost, nbCancel]
+          Hints.Strings = (
+            'Primeiro Registro'
+            'Registro Anterior'
+            'Registro Seguinte'
+            'Ultimo Registro'
+            'Incluir Registro'
+            'Excluir Registro'
+            'Editar Registro'
+            'Gravar Registro'
+            'Cancelar Operação'
+            'Atualizar')
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 0
+          OnClick = DBNavigator1Click
+        end
+        object BitBtn1: TBitBtn
+          Left = 364
+          Top = 8
+          Width = 62
+          Height = 25
+          Hint = 'Close'
+          Caption = 'Fechar'
+          TabOrder = 1
+          OnClick = BitBtn1Click
+          Kind = bkClose
+        end
+      end
+      object DBEdit1: TDBEdit
+        Left = 52
+        Top = 8
+        Width = 353
+        Height = 21
+        DataField = 'CHASSI'
+        DataSource = DataSource1
+        TabOrder = 0
+        OnKeyPress = DBEdit1KeyPress
+      end
+      object DBEdit2: TDBEdit
+        Left = 454
+        Top = 9
+        Width = 134
+        Height = 21
+        CharCase = ecUpperCase
+        DataField = 'PLACA'
+        DataSource = DataSource1
+        TabOrder = 1
+        OnKeyPress = DBEdit1KeyPress
+      end
+      object DBEdit3: TDBEdit
+        Left = 52
+        Top = 33
+        Width = 264
+        Height = 21
+        DataField = 'MARCAVEIC'
+        DataSource = DataSource1
+        TabOrder = 2
+        OnKeyPress = DBEdit1KeyPress
+      end
+      object DBEdit4: TDBEdit
+        Left = 376
+        Top = 34
+        Width = 212
+        Height = 21
+        DataField = 'MODELOVEIC'
+        DataSource = DataSource1
+        TabOrder = 3
+        OnKeyPress = DBEdit1KeyPress
+      end
+      object DBEdit5: TDBEdit
+        Left = 52
+        Top = 58
+        Width = 264
+        Height = 21
+        DataField = 'NOMEVEIC'
+        DataSource = DataSource1
+        TabOrder = 4
+        OnKeyPress = DBEdit1KeyPress
+      end
+      object DBEdit6: TDBEdit
+        Left = 360
+        Top = 58
+        Width = 134
+        Height = 21
+        DataField = 'ANOVEIC'
+        DataSource = DataSource1
+        TabOrder = 5
+        OnKeyPress = DBEdit1KeyPress
+      end
+      object DBEdit7: TDBEdit
+        Left = 83
+        Top = 83
+        Width = 504
+        Height = 21
+        DataField = 'PROCEDVEIC'
+        DataSource = DataSource1
+        TabOrder = 7
+        OnKeyPress = DBEdit1KeyPress
+      end
+      object DBCheckBox1: TDBCheckBox
+        Left = 512
+        Top = 58
+        Width = 75
+        Height = 17
+        BiDiMode = bdLeftToRight
+        Caption = 'Terceirizado'
+        DataField = 'TERCEIRIZADO'
+        DataSource = DataSource1
+        ParentBiDiMode = False
+        TabOrder = 6
+        ValueChecked = '1'
+        ValueUnchecked = '0'
+      end
+    end
+  end
+  object TVeiculos: TSQLQuery
+    Database = FPrincipal.BasePrincipal
+    Transaction = FPrincipal.IBTransaction1
+    Left = 40
+    Top = 260
+    object TVeiculosCODVEIC: TIntegerField
+      FieldName = 'CODVEIC'
+    end
+    object TVeiculosCHASSI: TIBStringField
+      FieldName = 'CHASSI'
+      Size = 30
+    end
+    object TVeiculosPLACA: TIBStringField
+      FieldName = 'PLACA'
+      EditMask = '>LLL-0000;1;_'
+      Size = 10
+    end
+    object TVeiculosMARCAVEIC: TIBStringField
+      FieldName = 'MARCAVEIC'
+    end
+    object TVeiculosMODELOVEIC: TIBStringField
+      FieldName = 'MODELOVEIC'
+    end
+    object TVeiculosNOMEVEIC: TIBStringField
+      FieldName = 'NOMEVEIC'
+    end
+    object TVeiculosANOVEIC: TIBStringField
+      FieldName = 'ANOVEIC'
+      EditMask = '!99/99/0000;1;_'
+      Size = 10
+    end
+    object TVeiculosPROCEDVEIC: TIBStringField
+      FieldName = 'PROCEDVEIC'
+      Size = 80
+    end
+    object TVeiculosTERCEIRIZADO: TSmallintField
+      FieldName = 'TERCEIRIZADO'
+    end
+  end
+  object DataSource1: TDataSource
+    DataSet = TVeiculos
+    Left = 112
+    Top = 264
+  end
+end

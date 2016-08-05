@@ -1,0 +1,1490 @@
+object FBViagem: TFBViagem
+  Left = 177
+  Top = 204
+  HorzScrollBar.Smooth = True
+  AutoScroll = False
+  BorderIcons = [biSystemMenu]
+  Caption = 'Boletim de Viagem'
+  ClientHeight = 391
+  ClientWidth = 728
+  Color = clBtnFace
+  DockSite = True
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  FormStyle = fsMDIChild
+  Position = poMainFormCenter
+  Visible = True
+  OnClose = FormClose
+  OnPaint = FormPaint
+  PixelsPerInch = 96
+  object PageControl1: TPageControl
+    Left = 0
+    Top = 0
+    Width = 728
+    Height = 391
+    ActivePage = TabSheet1
+    Align = alClient
+    TabOrder = 0
+    object TabSheet1: TTabSheet
+      Caption = 'Abertura Boletim'
+      object Label5: TLabel
+        Left = 233
+        Top = 8
+        Width = 74
+        Height = 13
+        Caption = 'Boletim Número'
+      end
+      object Label1: TLabel
+        Left = 223
+        Top = 31
+        Width = 84
+        Height = 13
+        Caption = 'Cidade de Origem'
+      end
+      object Label2: TLabel
+        Left = 14
+        Top = 8
+        Width = 77
+        Height = 13
+        Caption = 'Placa Caminhão'
+      end
+      object Label3: TLabel
+        Left = 255
+        Top = 99
+        Width = 53
+        Height = 13
+        Caption = 'Data Saida'
+      end
+      object Label4: TLabel
+        Left = 238
+        Top = 122
+        Width = 69
+        Height = 13
+        Caption = 'Data Chegada'
+      end
+      object Label6: TLabel
+        Left = 467
+        Top = 29
+        Width = 79
+        Height = 13
+        Caption = 'Gastos Motorista'
+      end
+      object Label7: TLabel
+        Left = 45
+        Top = 31
+        Width = 46
+        Height = 13
+        Caption = 'KM Inicial'
+      end
+      object Label8: TLabel
+        Left = 50
+        Top = 54
+        Width = 41
+        Height = 13
+        Caption = 'KM Final'
+      end
+      object Label21: TLabel
+        Left = 463
+        Top = 53
+        Width = 83
+        Height = 13
+        Caption = 'Gastos Ajudantes'
+      end
+      object Label22: TLabel
+        Left = 467
+        Top = 76
+        Width = 79
+        Height = 13
+        Caption = 'Gastos Totais'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Label28: TLabel
+        Left = 458
+        Top = 6
+        Width = 88
+        Height = 13
+        Caption = 'Gasto Combustivel'
+      end
+      object Label23: TLabel
+        Left = 30
+        Top = 76
+        Width = 61
+        Height = 13
+        Caption = 'KM Percurso'
+      end
+      object Label29: TLabel
+        Left = 44
+        Top = 99
+        Width = 47
+        Height = 13
+        Caption = 'KM / Litro'
+      end
+      object Label32: TLabel
+        Left = 471
+        Top = 100
+        Width = 78
+        Height = 13
+        Caption = 'Lucro Liquido'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Label9: TLabel
+        Left = 275
+        Top = 76
+        Width = 32
+        Height = 13
+        Caption = 'Cliente'
+      end
+      object Label14: TLabel
+        Left = 220
+        Top = 53
+        Width = 87
+        Height = 13
+        Caption = 'Cidade de Destino'
+      end
+      object DBEdit1: TDBEdit
+        Left = 310
+        Top = 3
+        Width = 117
+        Height = 21
+        TabStop = False
+        DataField = 'CODBO'
+        DataSource = dsBoletim
+        TabOrder = 3
+        OnKeyPress = DBEdit4KeyPress
+      end
+      object DBLookupComboBox1: TDBLookupComboBox
+        Left = 310
+        Top = 26
+        Width = 135
+        Height = 21
+        DataField = 'CODCID'
+        DataSource = dsBoletim
+        KeyField = 'CODCID'
+        ListField = 'NOMECID'
+        ListSource = dsCidade
+        TabOrder = 4
+        OnDropDown = DBLookupComboBox1DropDown
+        OnKeyPress = DBEdit4KeyPress
+      end
+      object DBLookupComboBox2: TDBLookupComboBox
+        Left = 94
+        Top = 3
+        Width = 116
+        Height = 21
+        DataField = 'CODVEIC'
+        DataSource = dsBoletim
+        KeyField = 'CODVEIC'
+        ListField = 'PLACA'
+        ListSource = dsVeiculos
+        TabOrder = 0
+        OnDropDown = DBLookupComboBox2DropDown
+        OnKeyPress = DBEdit4KeyPress
+      end
+      object DBEdit2: TDBEdit
+        Left = 310
+        Top = 95
+        Width = 117
+        Height = 21
+        DataField = 'DATASAIDA'
+        DataSource = dsBoletim
+        TabOrder = 7
+        OnKeyPress = DBEdit4KeyPress
+      end
+      object DBEdit3: TDBEdit
+        Left = 310
+        Top = 118
+        Width = 117
+        Height = 21
+        DataField = 'DATACHEGA'
+        DataSource = dsBoletim
+        TabOrder = 8
+        OnKeyPress = DBEdit4KeyPress
+      end
+      object DBEdit6: TDBEdit
+        Left = 549
+        Top = 26
+        Width = 117
+        Height = 21
+        DataField = 'VALORGAST'
+        DataSource = dsBoletim
+        TabOrder = 10
+        OnKeyPress = DBEdit4KeyPress
+      end
+      object DBEdit5: TDBEdit
+        Left = 94
+        Top = 49
+        Width = 116
+        Height = 21
+        DataField = 'KMFINAL'
+        DataSource = dsBoletim
+        TabOrder = 2
+        OnKeyPress = DBEdit4KeyPress
+      end
+      object DBEdit4: TDBEdit
+        Left = 94
+        Top = 26
+        Width = 116
+        Height = 21
+        DataField = 'KMINICI'
+        DataSource = dsBoletim
+        TabOrder = 1
+        OnKeyPress = DBEdit4KeyPress
+      end
+      object DBNavigator1: TDBNavigator
+        Left = 537
+        Top = 149
+        Width = 40
+        Height = 25
+        DataSource = dsBoletim
+        VisibleButtons = [nbPrior, nbNext]
+        Hints.Strings = (
+          'Primeiro Registro'
+          'Registro Anterior'
+          'Registro Seguinte'
+          'Ultimo Registro'
+          'Incluir Registro'
+          'Excluir Registro'
+          'Editar Registro'
+          'Gravar Registro'
+          'Cancelar Operação'
+          'Atualizar')
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 14
+        OnClick = DBNavigator1Click
+      end
+      object DBEdit16: TDBEdit
+        Left = 549
+        Top = 49
+        Width = 117
+        Height = 21
+        DataField = 'GASTCLI'
+        DataSource = dsBoletim
+        TabOrder = 11
+        OnKeyPress = DBEdit4KeyPress
+      end
+      object DBEdit20: TDBEdit
+        Left = 549
+        Top = 3
+        Width = 117
+        Height = 21
+        TabStop = False
+        DataField = 'GASTO'
+        DataSource = dsQTotalP
+        TabOrder = 9
+        OnKeyPress = DBEdit4KeyPress
+      end
+      object StaticText1: TStaticText
+        Left = 549
+        Top = 72
+        Width = 117
+        Height = 21
+        Alignment = taRightJustify
+        AutoSize = False
+        BorderStyle = sbsSunken
+        Color = clCaptionText
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clRed
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentColor = False
+        ParentFont = False
+        TabOrder = 16
+      end
+      object StaticText2: TStaticText
+        Left = 94
+        Top = 72
+        Width = 116
+        Height = 21
+        Alignment = taRightJustify
+        AutoSize = False
+        BorderStyle = sbsSunken
+        Color = clCaptionText
+        ParentColor = False
+        TabOrder = 17
+      end
+      object StaticText3: TStaticText
+        Left = 94
+        Top = 95
+        Width = 116
+        Height = 21
+        Alignment = taRightJustify
+        AutoSize = False
+        BorderStyle = sbsSunken
+        Color = clCaptionText
+        ParentColor = False
+        TabOrder = 18
+      end
+      object Panel1: TPanel
+        Left = 2
+        Top = 142
+        Width = 185
+        Height = 90
+        TabOrder = 12
+        object Label30: TLabel
+          Left = 121
+          Top = 16
+          Width = 43
+          Height = 13
+          Caption = 'Valor KM'
+          Visible = False
+        end
+        object Label31: TLabel
+          Left = 16
+          Top = 64
+          Width = 51
+          Height = 13
+          Caption = 'Valor Frete'
+        end
+        object DBEdit10: TDBEdit
+          Left = 119
+          Top = 34
+          Width = 58
+          Height = 21
+          DataField = 'VALORKM'
+          DataSource = dsBoletim
+          TabOrder = 1
+          Visible = False
+          OnExit = DBEdit10Exit
+          OnKeyPress = DBEdit4KeyPress
+        end
+        object DBRadioGroup1: TDBRadioGroup
+          Left = 4
+          Top = 4
+          Width = 112
+          Height = 51
+          Caption = 'Frete'
+          DataField = 'CALCULOKM'
+          DataSource = dsBoletim
+          Items.Strings = (
+            'Por KM'
+            'Valor Combinado')
+          TabOrder = 0
+          Values.Strings = (
+            'Y'
+            'N')
+          OnClick = DBRadioGroup1Click
+        end
+        object DBEdit21: TDBEdit
+          Left = 70
+          Top = 61
+          Width = 107
+          Height = 21
+          DataField = 'FRETE'
+          DataSource = dsBoletim
+          TabOrder = 2
+          OnKeyPress = DBEdit4KeyPress
+        end
+      end
+      object StaticText4: TStaticText
+        Left = 549
+        Top = 96
+        Width = 117
+        Height = 21
+        Alignment = taRightJustify
+        AutoSize = False
+        BorderStyle = sbsSunken
+        Color = clCaptionText
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlue
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentColor = False
+        ParentFont = False
+        TabOrder = 19
+      end
+      object DBNavigator4: TDBNavigator
+        Left = 578
+        Top = 149
+        Width = 100
+        Height = 25
+        DataSource = dsBoletim
+        VisibleButtons = [nbInsert, nbDelete, nbPost, nbCancel]
+        Hints.Strings = (
+          'Primeiro Registro'
+          'Registro Anterior'
+          'Registro Seguinte'
+          'Ultimo Registro'
+          'Incluir Registro'
+          'Excluir Registro'
+          'Editar Registro'
+          'Gravar Registro'
+          'Cancelar Operação'
+          'Atualizar')
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 15
+        BeforeAction = DBNavigator1Click
+        OnClick = DBNavigator4Click
+      end
+      object DBLookupComboBox3: TDBLookupComboBox
+        Left = 310
+        Top = 72
+        Width = 135
+        Height = 21
+        DataField = 'CODFAB'
+        DataSource = dsBoletim
+        KeyField = 'CODFAB'
+        ListField = 'NOMEFAB'
+        ListSource = dsEmpresa
+        TabOrder = 6
+        OnDropDown = DBLookupComboBox3DropDown
+        OnKeyPress = DBEdit4KeyPress
+      end
+      object DBGrid1: TDBGrid
+        Left = 0
+        Top = 234
+        Width = 720
+        Height = 129
+        Align = alBottom
+        DataSource = dsQBoletim
+        TabOrder = 20
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -11
+        TitleFont.Name = 'MS Sans Serif'
+        TitleFont.Style = []
+        OnCellClick = DBGrid1CellClick
+        Columns = <
+          item
+            Expanded = False
+            FieldName = 'CODBO'
+            Title.Caption = 'Boletim'
+            Width = 40
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'PLACA'
+            Title.Caption = 'Placa'
+            Width = 70
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'NOMEFAB'
+            Title.Caption = 'Cliente'
+            Width = 100
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'NOMECID1'
+            Title.Caption = 'Cidade de Origem'
+            Width = 100
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'NOMECID'
+            Title.Caption = 'Cidade de Destino'
+            Width = 100
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'DATASAIDA'
+            Title.Caption = 'Data Saida'
+            Width = 70
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'DATACHEGA'
+            Title.Caption = 'Data Chegada'
+            Width = 70
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'KMINICI'
+            Title.Caption = 'Km Inicial'
+            Width = 50
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'KMFINAL'
+            Title.Caption = 'Km Final'
+            Width = 50
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'KMPER'
+            Title.Caption = 'Km Percurso'
+            Width = 65
+            Visible = True
+          end>
+      end
+      object Panel2: TPanel
+        Left = 187
+        Top = 142
+        Width = 350
+        Height = 90
+        TabOrder = 13
+        object GroupBox1: TGroupBox
+          Left = 1
+          Top = 1
+          Width = 348
+          Height = 88
+          Align = alClient
+          Caption = 'Retorno'
+          TabOrder = 0
+          object Label10: TLabel
+            Left = 25
+            Top = 15
+            Width = 33
+            Height = 13
+            Caption = 'Cidade'
+          end
+          object Label11: TLabel
+            Left = 25
+            Top = 41
+            Width = 32
+            Height = 13
+            Caption = 'Cliente'
+          end
+          object Label12: TLabel
+            Left = 6
+            Top = 64
+            Width = 51
+            Height = 13
+            Caption = 'Valor Frete'
+          end
+          object Label13: TLabel
+            Left = 201
+            Top = 10
+            Width = 28
+            Height = 13
+            Caption = 'Carga'
+          end
+          object DBLookupComboBox4: TDBLookupComboBox
+            Left = 60
+            Top = 12
+            Width = 139
+            Height = 21
+            DataField = 'CODCID2'
+            DataSource = dsBoletim
+            KeyField = 'CODCID'
+            ListField = 'NOMECID'
+            ListSource = dsCidade
+            TabOrder = 0
+            OnDropDown = DBLookupComboBox1DropDown
+            OnKeyPress = DBEdit4KeyPress
+          end
+          object DBLookupComboBox5: TDBLookupComboBox
+            Left = 60
+            Top = 36
+            Width = 139
+            Height = 21
+            DataField = 'CODFAB2'
+            DataSource = dsBoletim
+            KeyField = 'CODFAB'
+            ListField = 'NOMEFAB'
+            ListSource = dsEmpresa
+            TabOrder = 1
+            OnDropDown = DBLookupComboBox3DropDown
+            OnKeyPress = DBEdit4KeyPress
+          end
+          object DBEdit7: TDBEdit
+            Left = 60
+            Top = 60
+            Width = 121
+            Height = 21
+            DataField = 'FRETE2'
+            DataSource = dsBoletim
+            TabOrder = 2
+            OnKeyPress = DBEdit4KeyPress
+          end
+          object DBMemo1: TDBMemo
+            Left = 200
+            Top = 23
+            Width = 143
+            Height = 61
+            DataField = 'CARGA'
+            DataSource = dsBoletim
+            TabOrder = 3
+          end
+        end
+      end
+      object DBLookupComboBox8: TDBLookupComboBox
+        Left = 310
+        Top = 49
+        Width = 136
+        Height = 21
+        DataField = 'NOMECID'
+        DataSource = dsBoletim
+        KeyField = 'NOMECID'
+        ListField = 'NOMECID'
+        ListSource = dsCidade
+        TabOrder = 5
+        OnDropDown = DBLookupComboBox1DropDown
+        OnKeyPress = DBEdit4KeyPress
+      end
+    end
+    object TabSheet3: TTabSheet
+      Caption = 'Abastecimentos'
+      ImageIndex = 2
+      object Label16: TLabel
+        Left = 10
+        Top = 10
+        Width = 27
+        Height = 13
+        Caption = 'Posto'
+      end
+      object Label17: TLabel
+        Left = 227
+        Top = 10
+        Width = 25
+        Height = 13
+        Caption = 'Litros'
+      end
+      object Label18: TLabel
+        Left = 337
+        Top = 228
+        Width = 52
+        Height = 13
+        Caption = 'Total Litros'
+      end
+      object Label19: TLabel
+        Left = 217
+        Top = 72
+        Width = 34
+        Height = 13
+        Caption = 'Boletim'
+      end
+      object Label24: TLabel
+        Left = 4
+        Top = 33
+        Width = 33
+        Height = 13
+        Caption = 'Cidade'
+      end
+      object Label25: TLabel
+        Left = 205
+        Top = 33
+        Width = 47
+        Height = 13
+        Caption = 'Valor Litro'
+      end
+      object Label26: TLabel
+        Left = 336
+        Top = 34
+        Width = 45
+        Height = 13
+        Caption = 'KM abas.'
+      end
+      object Label27: TLabel
+        Left = 301
+        Top = 251
+        Width = 88
+        Height = 13
+        Caption = 'Gasto Combustivel'
+      end
+      object DBGrid3: TDBGrid
+        Left = 40
+        Top = 101
+        Width = 438
+        Height = 120
+        DataSource = dsQPosBO
+        TabOrder = 7
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -11
+        TitleFont.Name = 'MS Sans Serif'
+        TitleFont.Style = []
+        OnCellClick = DBGrid3CellClick
+        Columns = <
+          item
+            Expanded = False
+            FieldName = 'NOMEPOS'
+            Title.Caption = 'Posto'
+            Width = 157
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'KM'
+            Title.Caption = 'KM Abast.'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'LITROS'
+            Title.Caption = 'Litros'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'VALORL'
+            Title.Caption = 'Valor Litro'
+            Width = 60
+            Visible = True
+          end>
+      end
+      object DBEdit12: TDBEdit
+        Left = 392
+        Top = 225
+        Width = 63
+        Height = 21
+        TabStop = False
+        DataField = 'TOTALL'
+        DataSource = dsQTotalP
+        TabOrder = 8
+        OnKeyPress = DBEdit4KeyPress
+      end
+      object DBEdit11: TDBEdit
+        Left = 255
+        Top = 6
+        Width = 64
+        Height = 21
+        DataField = 'LITROS'
+        DataSource = dsPostoBO
+        TabOrder = 2
+        OnKeyPress = DBEdit4KeyPress
+      end
+      object DBNavigator3: TDBNavigator
+        Left = 306
+        Top = 67
+        Width = 40
+        Height = 25
+        DataSource = dsBoletim
+        VisibleButtons = [nbPrior, nbNext]
+        Hints.Strings = (
+          'Primeiro Registro'
+          'Registro Anterior'
+          'Registro Seguinte'
+          'Ultimo Registro'
+          'Incluir Registro'
+          'Excluir Registro'
+          'Editar Registro'
+          'Gravar Registro'
+          'Cancelar Operação'
+          'Atualizar')
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 6
+        OnClick = DBNavigator1Click
+      end
+      object DBEdit14: TDBEdit
+        Left = 252
+        Top = 68
+        Width = 52
+        Height = 21
+        TabStop = False
+        DataField = 'CODBO'
+        DataSource = dsBoletim
+        TabOrder = 5
+        OnKeyPress = DBEdit4KeyPress
+      end
+      object DBEdit17: TDBEdit
+        Left = 255
+        Top = 29
+        Width = 64
+        Height = 21
+        DataField = 'VALORL'
+        DataSource = dsPostoBO
+        TabOrder = 3
+        OnKeyPress = DBEdit4KeyPress
+      end
+      object DBLookupComboBox6: TDBLookupComboBox
+        Left = 40
+        Top = 29
+        Width = 149
+        Height = 21
+        DataField = 'CODCID'
+        DataSource = dsPostoBO
+        KeyField = 'CODCID'
+        ListField = 'NOMECID'
+        ListSource = dsCidade
+        TabOrder = 1
+        OnDropDown = DBLookupComboBox6DropDown
+        OnKeyPress = DBEdit4KeyPress
+      end
+      object DBEdit18: TDBEdit
+        Left = 384
+        Top = 30
+        Width = 64
+        Height = 21
+        DataField = 'KM'
+        DataSource = dsPostoBO
+        TabOrder = 4
+        OnKeyPress = DBEdit4KeyPress
+      end
+      object DBEdit19: TDBEdit
+        Left = 392
+        Top = 248
+        Width = 63
+        Height = 21
+        TabStop = False
+        DataField = 'GASTO'
+        DataSource = dsQTotalP
+        TabOrder = 9
+        OnKeyPress = DBEdit4KeyPress
+      end
+      object DBLookupComboBox7: TDBLookupComboBox
+        Left = 40
+        Top = 6
+        Width = 149
+        Height = 21
+        DataField = 'CODPOS'
+        DataSource = dsPostoBO
+        KeyField = 'CODPOS'
+        ListField = 'NOMEPOS'
+        ListSource = dsPosto
+        TabOrder = 0
+        OnDropDown = DBLookupComboBox7DropDown
+        OnKeyPress = DBEdit4KeyPress
+      end
+      object DBNavigator7: TDBNavigator
+        Left = 44
+        Top = 64
+        Width = 100
+        Height = 25
+        DataSource = dsPostoBO
+        VisibleButtons = [nbInsert, nbDelete, nbPost, nbCancel]
+        DragMode = dmAutomatic
+        Hints.Strings = (
+          'Primeiro Registro'
+          'Registro Anterior'
+          'Registro Seguinte'
+          'Ultimo Registro'
+          'Incluir Registro'
+          'Excluir Registro'
+          'Editar Registro'
+          'Gravar Registro'
+          'Cancelar Operação'
+          'Atualizar')
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 10
+        BeforeAction = DBNavigator1Click
+      end
+    end
+  end
+  object TCidade: TSQLQuery
+    Database = FPrincipal.BasePrincipal
+    Transaction = FPrincipal.IBTransaction1
+    FieldDefs = <
+      item
+        Name = 'CODCID'
+        DataType = ftInteger
+      end
+      item
+        Name = 'CODEST'
+        DataType = ftInteger
+      end
+      item
+        Name = 'NOMECID'
+        DataType = ftString
+        Size = 30
+      end
+      item
+        Name = 'DISTUBA'
+        DataType = ftInteger
+      end>
+    IndexDefs = <
+      item
+        Name = 'RDB$PRIMARY4'
+        Fields = 'CODCID'
+        Options = [ixPrimary, ixUnique]
+      end
+      item
+        Name = 'INCID'
+        Fields = 'CODCID'
+        Options = [ixUnique]
+      end
+      item
+        Name = 'NOMECID'
+        Fields = 'NOMECID'
+        Options = [ixCaseInsensitive]
+      end>
+    IndexName = 'NOMECID'
+    Left = 576
+    Top = 210
+    object TCidadeCODCID: TIntegerField
+      FieldName = 'CODCID'
+      Required = True
+    end
+    object TCidadeCODEST: TIntegerField
+      FieldName = 'CODEST'
+    end
+    object TCidadeNOMECID: TIBStringField
+      FieldName = 'NOMECID'
+      Size = 30
+    end
+    object TCidadeDISTUBA: TIntegerField
+      FieldName = 'DISTUBA'
+    end
+  end
+  object TVeiculos: TSQLQuery
+    Database = FPrincipal.BasePrincipal
+    Transaction = FPrincipal.IBTransaction1
+    FieldDefs = <
+      item
+        Name = 'CODVEIC'
+        DataType = ftInteger
+      end
+      item
+        Name = 'CHASSI'
+        DataType = ftString
+        Size = 30
+      end
+      item
+        Name = 'PLACA'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'MARCAVEIC'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'MODELOVEIC'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'NOMEVEIC'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'ANOVEIC'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'PROCEDVEIC'
+        DataType = ftString
+        Size = 80
+      end
+      item
+        Name = 'TERCEIRIZADO'
+        DataType = ftSmallint
+      end>
+    IndexDefs = <
+      item
+        Name = 'RDB$PRIMARY2'
+        Fields = 'CODVEIC'
+        Options = [ixPrimary, ixUnique]
+      end
+      item
+        Name = 'PLACA'
+        Fields = 'PLACA'
+        Options = [ixCaseInsensitive]
+      end>
+    IndexName = 'PLACA'
+    Left = 683
+    Top = 210
+    object TVeiculosCODVEIC: TIntegerField
+      FieldName = 'CODVEIC'
+      Required = True
+    end
+    object TVeiculosCHASSI: TIBStringField
+      FieldName = 'CHASSI'
+      Size = 30
+    end
+    object TVeiculosPLACA: TIBStringField
+      FieldName = 'PLACA'
+      Size = 10
+    end
+    object TVeiculosMARCAVEIC: TIBStringField
+      FieldName = 'MARCAVEIC'
+    end
+    object TVeiculosMODELOVEIC: TIBStringField
+      FieldName = 'MODELOVEIC'
+    end
+    object TVeiculosNOMEVEIC: TIBStringField
+      FieldName = 'NOMEVEIC'
+    end
+    object TVeiculosANOVEIC: TIBStringField
+      FieldName = 'ANOVEIC'
+      Size = 10
+    end
+    object TVeiculosPROCEDVEIC: TIBStringField
+      FieldName = 'PROCEDVEIC'
+      Size = 80
+    end
+    object TVeiculosTERCEIRIZADO: TSmallintField
+      FieldName = 'TERCEIRIZADO'
+    end
+  end
+  object dsBoletim: TDataSource
+    DataSet = TBoletim
+    Left = 428
+    Top = 258
+  end
+  object dsVeiculos: TDataSource
+    DataSet = TVeiculos
+    Left = 684
+    Top = 256
+  end
+  object TBoletim: TSQLQuery
+    Database = FPrincipal.BasePrincipal
+    Transaction = FPrincipal.IBTransaction1
+    AfterInsert = TBoletimAfterInsert
+    AfterPost = TBoletimAfterPost
+    BeforeDelete = TBoletimBeforeDelete
+    BeforeInsert = TBoletimBeforeInsert
+    BeforePost = TBoletimBeforePost
+    FieldDefs = <
+      item
+        Name = 'CODBO'
+        DataType = ftInteger
+      end
+      item
+        Name = 'CODVEIC'
+        DataType = ftInteger
+      end
+      item
+        Name = 'KMINICI'
+        DataType = ftInteger
+      end
+      item
+        Name = 'KMFINAL'
+        DataType = ftInteger
+      end
+      item
+        Name = 'CODCID'
+        DataType = ftInteger
+      end
+      item
+        Name = 'FRETE'
+        DataType = ftBCD
+        Precision = 9
+        Size = 2
+      end
+      item
+        Name = 'CALCULOKM'
+        DataType = ftString
+        Size = 1
+      end
+      item
+        Name = 'VALORKM'
+        DataType = ftBCD
+        Precision = 4
+        Size = 2
+      end
+      item
+        Name = 'VALORGAST'
+        DataType = ftBCD
+        Precision = 18
+        Size = 2
+      end
+      item
+        Name = 'DATACHEGA'
+        DataType = ftDate
+      end
+      item
+        Name = 'DATASAIDA'
+        DataType = ftDate
+      end
+      item
+        Name = 'CODFAB'
+        DataType = ftInteger
+      end
+      item
+        Name = 'GASTCLI'
+        DataType = ftBCD
+        Precision = 18
+        Size = 2
+      end
+      item
+        Name = 'CODCID2'
+        DataType = ftInteger
+      end
+      item
+        Name = 'FRETE2'
+        DataType = ftBCD
+        Precision = 18
+        Size = 2
+      end
+      item
+        Name = 'CODFAB2'
+        DataType = ftInteger
+      end
+      item
+        Name = 'CARGA'
+        DataType = ftMemo
+      end
+      item
+        Name = 'CODCIDDEST'
+        DataType = ftInteger
+      end
+      item
+        Name = 'NOMECID'
+        DataType = ftString
+        Size = 30
+      end>
+    IndexDefs = <
+      item
+        Name = 'RDB$PRIMARY30'
+        Fields = 'CODBO'
+        Options = [ixPrimary, ixUnique]
+      end>
+    Left = 432
+    Top = 213
+    object TBoletimCODBO: TIntegerField
+      FieldName = 'CODBO'
+    end
+    object TBoletimCODVEIC: TIntegerField
+      FieldName = 'CODVEIC'
+    end
+    object TBoletimKMINICI: TIntegerField
+      FieldName = 'KMINICI'
+    end
+    object TBoletimKMFINAL: TIntegerField
+      FieldName = 'KMFINAL'
+    end
+    object TBoletimCODCID: TIntegerField
+      FieldName = 'CODCID'
+    end
+    object TBoletimFRETE: TIBBCDField
+      FieldName = 'FRETE'
+      Precision = 9
+      Size = 2
+    end
+    object TBoletimCALCULOKM: TIBStringField
+      FieldName = 'CALCULOKM'
+      Size = 1
+    end
+    object TBoletimVALORKM: TIBBCDField
+      FieldName = 'VALORKM'
+      Precision = 4
+      Size = 2
+    end
+    object TBoletimVALORGAST: TIBBCDField
+      FieldName = 'VALORGAST'
+      Precision = 18
+      Size = 2
+    end
+    object TBoletimDATACHEGA: TDateField
+      FieldName = 'DATACHEGA'
+      EditMask = '!99/99/0000;1;_'
+    end
+    object TBoletimDATASAIDA: TDateField
+      FieldName = 'DATASAIDA'
+      EditMask = '!99/99/0000;1;_'
+    end
+    object TBoletimCODFAB: TIntegerField
+      FieldName = 'CODFAB'
+    end
+    object TBoletimGASTCLI: TIBBCDField
+      FieldName = 'GASTCLI'
+      Precision = 18
+      Size = 2
+    end
+    object TBoletimCODCID2: TIntegerField
+      FieldName = 'CODCID2'
+    end
+    object TBoletimFRETE2: TIBBCDField
+      FieldName = 'FRETE2'
+      Precision = 18
+      Size = 2
+    end
+    object TBoletimCODFAB2: TIntegerField
+      FieldName = 'CODFAB2'
+    end
+    object TBoletimCARGA: TMemoField
+      FieldName = 'CARGA'
+      BlobType = ftMemo
+    end
+    object TBoletimNOMECID: TIBStringField
+      FieldName = 'NOMECID'
+      Size = 30
+    end
+  end
+  object dsCidade: TDataSource
+    DataSet = TCidade
+    Left = 578
+    Top = 256
+  end
+  object QControle: TSQLQuery
+    Database = FPrincipal.BasePrincipal
+    Transaction = FPrincipal.IBTransaction1
+    SQL.Strings = (
+      'select * from clientes')
+    Left = 527
+    Top = 118
+  end
+  object dsEmpresa: TDataSource
+    DataSet = TEmpresa
+    Left = 630
+    Top = 256
+  end
+  object TEmpresa: TSQLQuery
+    Database = FPrincipal.BasePrincipal
+    Transaction = FPrincipal.IBTransaction1
+    FieldDefs = <
+      item
+        Name = 'CODFAB'
+        DataType = ftInteger
+      end
+      item
+        Name = 'NOMEFAB'
+        DataType = ftString
+        Size = 40
+      end
+      item
+        Name = 'TIPOPROD'
+        DataType = ftString
+        Size = 40
+      end
+      item
+        Name = 'CODCID'
+        DataType = ftInteger
+      end
+      item
+        Name = 'CODEST'
+        DataType = ftInteger
+      end
+      item
+        Name = 'ENDERECOFAB'
+        DataType = ftString
+        Size = 40
+      end
+      item
+        Name = 'BAIRROFAB'
+        DataType = ftString
+        Size = 40
+      end
+      item
+        Name = 'CEPFAB'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'FONEFAB'
+        DataType = ftString
+        Size = 15
+      end
+      item
+        Name = 'EMAILFAB'
+        DataType = ftString
+        Size = 40
+      end
+      item
+        Name = 'SITEFAB'
+        DataType = ftString
+        Size = 80
+      end>
+    IndexDefs = <
+      item
+        Name = 'RDB$PRIMARY36'
+        Fields = 'CODFAB'
+        Options = [ixPrimary, ixUnique]
+      end
+      item
+        Name = 'NOMEFAB'
+        Fields = 'NOMEFAB'
+        Options = [ixCaseInsensitive]
+      end>
+    IndexName = 'NOMEFAB'
+    Left = 630
+    Top = 210
+    object TEmpresaCODFAB: TIntegerField
+      FieldName = 'CODFAB'
+    end
+    object TEmpresaNOMEFAB: TIBStringField
+      FieldName = 'NOMEFAB'
+      Size = 40
+    end
+    object TEmpresaTIPOPROD: TIBStringField
+      FieldName = 'TIPOPROD'
+      Size = 40
+    end
+  end
+  object dsPosto: TDataSource
+    DataSet = TPosto
+    Left = 475
+    Top = 258
+  end
+  object dsQTotalP: TDataSource
+    DataSet = QTotalP
+    Left = 630
+    Top = 164
+  end
+  object TPosto: TSQLQuery
+    Database = FPrincipal.BasePrincipal
+    Transaction = FPrincipal.IBTransaction1
+    FieldDefs = <
+      item
+        Name = 'CODPOS'
+        DataType = ftInteger
+      end
+      item
+        Name = 'NOMEPOS'
+        DataType = ftString
+        Size = 30
+      end>
+    IndexDefs = <
+      item
+        Name = 'RDB$PRIMARY38'
+        Fields = 'CODPOS'
+        Options = [ixPrimary, ixUnique]
+      end
+      item
+        Name = 'NOMEPOS'
+        Fields = 'NOMEPOS'
+        Options = [ixCaseInsensitive]
+      end>
+    IndexName = 'NOMEPOS'
+    Left = 474
+    Top = 214
+    object TPostoCODPOS: TIntegerField
+      FieldName = 'CODPOS'
+      Required = True
+    end
+    object TPostoNOMEPOS: TIBStringField
+      FieldName = 'NOMEPOS'
+      Size = 30
+    end
+  end
+  object QTotalP: TSQLQuery
+    Database = FPrincipal.BasePrincipal
+    Transaction = FPrincipal.IBTransaction1
+    SQL.Strings = (
+      
+        'Select sum(Posto_BO.LITROS*Posto_BO.VALORL) as GASTO, sum(Posto_' +
+        'BO.LITROS) as TOTALL From Posto, Posto_BO, Boletim Where (Posto_' +
+        'BO.CODBO=Boletim.CODBO) and (Posto_BO.CODPOS=Posto.CODPOS);')
+    Left = 629
+    Top = 118
+  end
+  object dsQPosBO: TDataSource
+    DataSet = QPosBO
+    Left = 685
+    Top = 164
+  end
+  object QPosBO: TSQLQuery
+    Database = FPrincipal.BasePrincipal
+    Transaction = FPrincipal.IBTransaction1
+    SQL.Strings = (
+      
+        'Select Posto.NOMEPOS, Posto_BO.* From Posto, Posto_BO, Boletim W' +
+        'here (Posto_BO.CODBO=Boletim.CODBO) and (Posto_BO.CODPOS=Posto.C' +
+        'ODPOS);')
+    Left = 685
+    Top = 120
+    object QPosBOCODPOSBO: TIntegerField
+      FieldName = 'CODPOSBO'
+      Origin = 'POSTO_BO.CODPOSBO'
+      Required = True
+    end
+    object QPosBOCODBO: TIntegerField
+      FieldName = 'CODBO'
+      Origin = 'POSTO_BO.CODBO'
+    end
+    object QPosBOCODPOS: TIntegerField
+      FieldName = 'CODPOS'
+      Origin = 'POSTO_BO.CODPOS'
+    end
+    object QPosBOKM: TIntegerField
+      FieldName = 'KM'
+      Origin = 'POSTO_BO.KM'
+    end
+    object QPosBOCODCID: TIntegerField
+      FieldName = 'CODCID'
+      Origin = 'POSTO_BO.CODCID'
+    end
+    object QPosBONOMEPOS: TIBStringField
+      FieldName = 'NOMEPOS'
+      Origin = 'POSTO.NOMEPOS'
+      Size = 30
+    end
+    object QPosBOVALORL: TIBBCDField
+      FieldName = 'VALORL'
+      Origin = 'POSTO_BO.VALORL'
+      Precision = 18
+      Size = 4
+    end
+    object QPosBOLITROS: TIBBCDField
+      FieldName = 'LITROS'
+      Origin = 'POSTO_BO.LITROS'
+      Precision = 18
+      Size = 4
+    end
+  end
+  object QInsDel: TSQLQuery
+    Database = FPrincipal.BasePrincipal
+    Transaction = FPrincipal.IBTransaction1
+    Left = 528
+    Top = 173
+  end
+  object TPostoBO: TSQLQuery
+    Database = FPrincipal.BasePrincipal
+    Transaction = FPrincipal.IBTransaction1
+    AfterDelete = TPostoBOAfterDelete
+    AfterInsert = TPostoBOAfterInsert
+    AfterPost = TPostoBOAfterDelete
+    Left = 527
+    Top = 213
+    object TPostoBOCODPOSBO: TIntegerField
+      FieldName = 'CODPOSBO'
+    end
+    object TPostoBOCODBO: TIntegerField
+      FieldName = 'CODBO'
+    end
+    object TPostoBOCODPOS: TIntegerField
+      FieldName = 'CODPOS'
+    end
+    object TPostoBOKM: TIntegerField
+      FieldName = 'KM'
+    end
+    object TPostoBOCODCID: TIntegerField
+      FieldName = 'CODCID'
+    end
+    object TPostoBOLITROS: TIBBCDField
+      FieldName = 'LITROS'
+      Precision = 18
+      Size = 4
+    end
+    object TPostoBOVALORL: TIBBCDField
+      FieldName = 'VALORL'
+      Precision = 18
+      Size = 4
+    end
+  end
+  object dsPostoBO: TDataSource
+    DataSet = TPostoBO
+    Left = 527
+    Top = 257
+  end
+  object QBoletim: TSQLQuery
+    Database = FPrincipal.BasePrincipal
+    Transaction = FPrincipal.IBTransaction1
+    Active = True
+    SQL.Strings = (
+      
+        'Select Boletim.*, Cidade.NOMECID, Veiculos.PLACA, Fabrica.NOMEFA' +
+        'B, (Boletim.KMFINAL-Boletim.KMINICI) As KMPER From Boletim, Cida' +
+        'de, Veiculos, Fabrica Where (Boletim.CODVEIC=Veiculos.CODVEIC) a' +
+        'nd (Boletim.CODFAB=Fabrica.CODFAB) and (Boletim.CODCID=Cidade.CO' +
+        'DCID) Order by Boletim.CODBO;')
+    Left = 577
+    Top = 120
+  end
+  object dsQBoletim: TDataSource
+    DataSet = QBoletim
+    Left = 577
+    Top = 164
+  end
+end

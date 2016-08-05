@@ -1,0 +1,309 @@
+object FBancos: TFBancos
+  Left = 382
+  Top = 218
+  Width = 476
+  Height = 350
+  BorderIcons = [biSystemMenu]
+  Caption = 'Cadastro de Bancos'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  FormStyle = fsMDIChild
+  Position = poMainFormCenter
+  Visible = True
+  OnClose = FormClose
+  PixelsPerInch = 96
+  object PageControl1: TPageControl
+    Left = 0
+    Top = 0
+    Width = 468
+    Height = 323
+    ActivePage = TabSheet1
+    Align = alClient
+    TabOrder = 0
+    object TabSheet1: TTabSheet
+      Caption = 'Bancos'
+      object Label1: TLabel
+        Left = 170
+        Top = 37
+        Width = 39
+        Height = 13
+        Caption = 'Agencia'
+        FocusControl = DBEdit1
+      end
+      object Label2: TLabel
+        Left = 296
+        Top = 37
+        Width = 21
+        Height = 13
+        Caption = 'Tipo'
+        FocusControl = DBEdit2
+      end
+      object Label3: TLabel
+        Left = 29
+        Top = 36
+        Width = 28
+        Height = 13
+        Caption = 'Conta'
+        FocusControl = DBEdit3
+      end
+      object Label5: TLabel
+        Left = 23
+        Top = 61
+        Width = 33
+        Height = 13
+        Caption = 'Cidade'
+      end
+      object Label6: TLabel
+        Left = 364
+        Top = 61
+        Width = 14
+        Height = 13
+        Caption = 'UF'
+      end
+      object Label7: TLabel
+        Left = 26
+        Top = 12
+        Width = 31
+        Height = 13
+        Caption = 'Banco'
+        FocusControl = DBEdit4
+      end
+      object Panel1: TPanel
+        Left = 0
+        Top = 129
+        Width = 460
+        Height = 166
+        Align = alBottom
+        TabOrder = 7
+        object DBGrid1: TDBGrid
+          Left = 1
+          Top = 1
+          Width = 458
+          Height = 164
+          Align = alClient
+          DataSource = DataSource1
+          TabOrder = 0
+          TitleFont.Charset = DEFAULT_CHARSET
+          TitleFont.Color = clWindowText
+          TitleFont.Height = -11
+          TitleFont.Name = 'MS Sans Serif'
+          TitleFont.Style = []
+          Columns = <
+            item
+              Expanded = False
+              FieldName = 'NOMEBAN'
+              Title.Caption = 'Banco'
+              Width = 235
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'AGENCIA'
+              Title.Caption = 'Agencia'
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'NUMEROCONTA'
+              Title.Caption = 'Conta'
+              Visible = True
+            end>
+        end
+      end
+      object Panel2: TPanel
+        Left = 0
+        Top = 88
+        Width = 460
+        Height = 41
+        Align = alBottom
+        TabOrder = 6
+        object DBNavigator1: TDBNavigator
+          Left = 180
+          Top = 8
+          Width = 100
+          Height = 25
+          DataSource = DataSource1
+          VisibleButtons = [nbInsert, nbDelete, nbPost, nbCancel]
+          Hints.Strings = (
+            'Primeiro Registro'
+            'Registro Anterior'
+            'Registro Seguinte'
+            'Ultimo Registro'
+            'Incluir Registro'
+            'Excluir Registro'
+            'Editar Registro'
+            'Gravar Registro'
+            'Cancelar Operação'
+            'Atualizar')
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 0
+          OnClick = DBNavigator1Click
+        end
+        object BitBtn1: TBitBtn
+          Left = 285
+          Top = 8
+          Width = 62
+          Height = 25
+          Hint = 'Close'
+          Caption = 'Fechar'
+          TabOrder = 1
+          OnClick = BitBtn1Click
+          Kind = bkClose
+        end
+      end
+      object DBEdit1: TDBEdit
+        Left = 212
+        Top = 33
+        Width = 62
+        Height = 21
+        DataField = 'AGENCIA'
+        DataSource = DataSource1
+        TabOrder = 2
+        OnKeyPress = DBEdit4KeyPress
+      end
+      object DBEdit2: TDBEdit
+        Left = 320
+        Top = 33
+        Width = 115
+        Height = 21
+        DataField = 'TIPOCONTA'
+        DataSource = DataSource1
+        TabOrder = 3
+        OnKeyPress = DBEdit4KeyPress
+      end
+      object DBEdit3: TDBEdit
+        Left = 60
+        Top = 33
+        Width = 85
+        Height = 21
+        DataField = 'NUMEROCONTA'
+        DataSource = DataSource1
+        TabOrder = 1
+        OnKeyPress = DBEdit4KeyPress
+      end
+      object DBLookupComboBox2: TDBLookupComboBox
+        Left = 61
+        Top = 57
+        Width = 280
+        Height = 21
+        DataField = 'CODCID'
+        DataSource = DataSource1
+        KeyField = 'CODCID'
+        ListField = 'NOMECID'
+        ListSource = DataSource2
+        TabOrder = 4
+        OnDropDown = DBLookupComboBox2DropDown
+        OnKeyPress = DBEdit4KeyPress
+      end
+      object DBLookupComboBox3: TDBLookupComboBox
+        Left = 381
+        Top = 57
+        Width = 55
+        Height = 21
+        DataField = 'CODEST'
+        DataSource = DataSource1
+        KeyField = 'CODEST'
+        ListField = 'SIGLAEST'
+        ListSource = DataSource3
+        TabOrder = 5
+        OnDropDown = DBLookupComboBox3DropDown
+        OnKeyPress = DBEdit4KeyPress
+      end
+      object DBEdit4: TDBEdit
+        Left = 60
+        Top = 8
+        Width = 375
+        Height = 21
+        DataField = 'NOMEBAN'
+        DataSource = DataSource1
+        TabOrder = 0
+        OnKeyPress = DBEdit4KeyPress
+      end
+    end
+  end
+  object DataSource1: TDataSource
+    DataSet = TBancos
+    Left = 36
+    Top = 268
+  end
+  object DataSource2: TDataSource
+    DataSet = TCidade
+    Left = 112
+    Top = 272
+  end
+  object DataSource3: TDataSource
+    DataSet = TEstado
+    Left = 184
+    Top = 272
+  end
+  object TBancos: TSQLQuery
+    Database = FPrincipal.BasePrincipal
+    Transaction = FPrincipal.IBTransaction1
+    Left = 40
+    Top = 196
+    object TBancosCODBAN: TIntegerField
+      FieldName = 'CODBAN'
+    end
+    object TBancosCODCID: TIntegerField
+      FieldName = 'CODCID'
+    end
+    object TBancosCODEST: TIntegerField
+      FieldName = 'CODEST'
+    end
+    object TBancosNOMEBAN: TIBStringField
+      FieldName = 'NOMEBAN'
+      Size = 30
+    end
+    object TBancosAGENCIA: TIBStringField
+      FieldName = 'AGENCIA'
+      Size = 10
+    end
+    object TBancosTIPOCONTA: TIBStringField
+      FieldName = 'TIPOCONTA'
+      Size = 15
+    end
+    object TBancosNUMEROCONTA: TIBStringField
+      FieldName = 'NUMEROCONTA'
+    end
+  end
+  object TCidade: TSQLQuery
+    Database = FPrincipal.BasePrincipal
+    Transaction = FPrincipal.IBTransaction1
+    IndexName = 'NOMECID'
+    Left = 108
+    Top = 208
+    object TCidadeCODCID: TIntegerField
+      FieldName = 'CODCID'
+    end
+    object TCidadeCODEST: TIntegerField
+      FieldName = 'CODEST'
+    end
+    object TCidadeNOMECID: TIBStringField
+      FieldName = 'NOMECID'
+      Size = 30
+    end
+  end
+  object TEstado: TSQLQuery
+    Database = FPrincipal.BasePrincipal
+    Transaction = FPrincipal.IBTransaction1
+    IndexName = 'SIGLAEST'
+    Left = 180
+    Top = 212
+    object TEstadoCODEST: TIntegerField
+      FieldName = 'CODEST'
+    end
+    object TEstadoNOMEEST: TIBStringField
+      FieldName = 'NOMEEST'
+      Size = 15
+    end
+    object TEstadoSIGLAEST: TIBStringField
+      FieldName = 'SIGLAEST'
+      Size = 2
+    end
+  end
+end

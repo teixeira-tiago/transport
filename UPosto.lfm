@@ -1,0 +1,173 @@
+object FPosto: TFPosto
+  Left = 500
+  Top = 253
+  Width = 323
+  Height = 333
+  BorderIcons = [biSystemMenu]
+  Caption = 'Cadastro de Posto de Combustivel'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  FormStyle = fsMDIChild
+  Position = poMainFormCenter
+  Visible = True
+  OnClose = FormClose
+  PixelsPerInch = 96
+  object PageControl1: TPageControl
+    Left = 0
+    Top = 0
+    Width = 315
+    Height = 306
+    ActivePage = TabSheet1
+    Align = alClient
+    TabOrder = 0
+    object TabSheet1: TTabSheet
+      Caption = 'Posto de Combustivel'
+      object Label1: TLabel
+        Left = 12
+        Top = 12
+        Width = 148
+        Height = 13
+        Caption = 'Nome do Posto de Combustivel'
+        FocusControl = DBEdit1
+      end
+      object Label2: TLabel
+        Left = 12
+        Top = 256
+        Width = 52
+        Height = 13
+        Caption = 'Localizar'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Panel1: TPanel
+        Left = 0
+        Top = 108
+        Width = 307
+        Height = 139
+        TabOrder = 2
+        object DBGrid1: TDBGrid
+          Left = 1
+          Top = 1
+          Width = 305
+          Height = 137
+          Align = alClient
+          DataSource = DataSource1
+          TabOrder = 0
+          TitleFont.Charset = DEFAULT_CHARSET
+          TitleFont.Color = clWindowText
+          TitleFont.Height = -11
+          TitleFont.Name = 'MS Sans Serif'
+          TitleFont.Style = []
+          Columns = <
+            item
+              Expanded = False
+              FieldName = 'NOMEPOS'
+              Title.Caption = 'Posto de Combustivel'
+              Width = 270
+              Visible = True
+            end>
+        end
+      end
+      object Panel2: TPanel
+        Left = 0
+        Top = 67
+        Width = 307
+        Height = 41
+        TabOrder = 1
+        object DBNavigator1: TDBNavigator
+          Left = 102
+          Top = 8
+          Width = 100
+          Height = 25
+          DataSource = DataSource1
+          VisibleButtons = [nbInsert, nbDelete, nbPost, nbCancel]
+          Hints.Strings = (
+            'Primeiro Registro'
+            'Registro Anterior'
+            'Registro Seguinte'
+            'Ultimo Registro'
+            'Incluir Registro'
+            'Excluir Registro'
+            'Editar Registro'
+            'Gravar Registro'
+            'Cancelar Operação'
+            'Atualizar')
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 0
+        end
+        object BitBtn1: TBitBtn
+          Left = 208
+          Top = 8
+          Width = 62
+          Height = 25
+          Hint = 'Close'
+          Caption = 'Fechar'
+          TabOrder = 1
+          OnClick = BitBtn1Click
+          Kind = bkClose
+        end
+      end
+      object DBEdit1: TDBEdit
+        Left = 12
+        Top = 28
+        Width = 278
+        Height = 21
+        DataField = 'NOMEPOS'
+        DataSource = DataSource1
+        TabOrder = 0
+        OnKeyPress = DBEdit1KeyPress
+      end
+      object Edit1: TEdit
+        Left = 68
+        Top = 252
+        Width = 145
+        Height = 21
+        TabOrder = 3
+        OnChange = Edit1Change
+      end
+    end
+  end
+  object TPosto: TSQLQuery
+    Database = FPrincipal.BasePrincipal
+    Transaction = FPrincipal.IBTransaction1
+    FieldDefs = <
+      item
+        Name = 'CODPOS'
+        DataType = ftInteger
+      end
+      item
+        Name = 'NOMEPOS'
+        DataType = ftString
+        Size = 30
+      end>
+    IndexDefs = <
+      item
+        Name = 'RDB$PRIMARY35'
+        Fields = 'CODGPEC'
+        Options = [ixPrimary, ixUnique]
+      end>
+    Left = 128
+    Top = 168
+    object TPostoCODPOS: TIntegerField
+      FieldName = 'CODPOS'
+    end
+    object TPostoNOMEPOS: TIBStringField
+      FieldName = 'NOMEPOS'
+      Size = 30
+    end
+  end
+  object DataSource1: TDataSource
+    DataSet = TPosto
+    Left = 196
+    Top = 168
+  end
+end

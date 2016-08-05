@@ -1,0 +1,1669 @@
+object FOServico: TFOServico
+  Left = 380
+  Top = 183
+  Width = 339
+  Height = 442
+  BorderIcons = [biSystemMenu]
+  Caption = 'Ordem de Serviço'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  FormStyle = fsMDIChild
+  Position = poMainFormCenter
+  Visible = True
+  OnClose = FormClose
+  OnPaint = FormPaint
+  PixelsPerInch = 96
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 331
+    Height = 415
+    Align = alClient
+    TabOrder = 0
+    object Label1: TLabel
+      Left = 4
+      Top = 20
+      Width = 85
+      Height = 13
+      Caption = 'Ordem de Serviço'
+    end
+    object Label2: TLabel
+      Left = 12
+      Top = 43
+      Width = 77
+      Height = 13
+      Caption = 'Placa Caminhão'
+    end
+    object Label4: TLabel
+      Left = 187
+      Top = 19
+      Width = 23
+      Height = 13
+      Caption = 'Data'
+    end
+    object Label5: TLabel
+      Left = 195
+      Top = 43
+      Width = 16
+      Height = 13
+      Caption = 'KM'
+    end
+    object Label8: TLabel
+      Left = 56
+      Top = 66
+      Width = 33
+      Height = 13
+      Caption = 'Oficina'
+    end
+    object Label11: TLabel
+      Left = 166
+      Top = 393
+      Width = 73
+      Height = 13
+      Caption = 'Total da Ordem'
+    end
+    object DBLookupComboBox1: TDBLookupComboBox
+      Left = 92
+      Top = 39
+      Width = 91
+      Height = 21
+      DataField = 'CODVEIC'
+      DataSource = dsOServico
+      KeyField = 'CODVEIC'
+      ListField = 'PLACA'
+      ListSource = dsVeiculos
+      TabOrder = 2
+      OnDropDown = DBLookupComboBox1DropDown
+      OnKeyPress = DBEdit1KeyPress
+    end
+    object DBEdit1: TDBEdit
+      Left = 92
+      Top = 16
+      Width = 89
+      Height = 21
+      DataField = 'NUMEROOS'
+      DataSource = dsOServico
+      TabOrder = 0
+      OnKeyPress = DBEdit1KeyPress
+    end
+    object DBEdit3: TDBEdit
+      Left = 214
+      Top = 39
+      Width = 84
+      Height = 21
+      DataField = 'KM'
+      DataSource = dsOServico
+      TabOrder = 3
+      OnKeyPress = DBEdit1KeyPress
+    end
+    object DBEdit2: TDBEdit
+      Left = 214
+      Top = 16
+      Width = 84
+      Height = 21
+      DataField = 'DATA'
+      DataSource = dsOServico
+      MaxLength = 10
+      TabOrder = 1
+      OnKeyPress = DBEdit1KeyPress
+    end
+    object DBNavigator1: TDBNavigator
+      Left = 57
+      Top = 89
+      Width = 40
+      Height = 25
+      DataSource = dsOServico
+      VisibleButtons = [nbPrior, nbNext]
+      Hints.Strings = (
+        'Primeiro Registro'
+        'Registro Anterior'
+        'Registro Seguinte'
+        'Ultimo Registro'
+        'Incluir Registro'
+        'Excluir Registro'
+        'Editar Registro'
+        'Gravar Registro'
+        'Cancelar Operação'
+        'Atualizar')
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 5
+      OnClick = DBNavigator1Click
+    end
+    object BitBtn7: TBitBtn
+      Left = 201
+      Top = 89
+      Width = 62
+      Height = 25
+      Hint = 'Close'
+      Caption = 'Fechar'
+      TabOrder = 6
+      OnClick = BitBtn7Click
+      Kind = bkClose
+    end
+    object DBNavigator2: TDBNavigator
+      Left = 97
+      Top = 89
+      Width = 100
+      Height = 25
+      DataSource = dsOServico
+      VisibleButtons = [nbInsert, nbDelete, nbPost, nbCancel]
+      Hints.Strings = (
+        'Primeiro Registro'
+        'Registro Anterior'
+        'Registro Seguinte'
+        'Ultimo Registro'
+        'Incluir Registro'
+        'Excluir Registro'
+        'Editar Registro'
+        'Gravar Registro'
+        'Cancelar Operação'
+        'Atualizar')
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 7
+    end
+    object DBLookupComboBox5: TDBLookupComboBox
+      Left = 92
+      Top = 62
+      Width = 207
+      Height = 21
+      DataField = 'CODOF'
+      DataSource = dsOServico
+      KeyField = 'CODOF'
+      ListField = 'NOMEOF'
+      ListSource = dsOficina
+      TabOrder = 4
+      OnDropDown = DBLookupComboBox5DropDown
+      OnKeyPress = DBEdit1KeyPress
+    end
+    object PageControl1: TPageControl
+      Left = 1
+      Top = 116
+      Width = 318
+      Height = 156
+      ActivePage = TabSheet1
+      TabOrder = 8
+      OnChange = PageControl1Change
+      object TabSheet1: TTabSheet
+        Caption = 'Motor'
+        object Label6: TLabel
+          Left = 6
+          Top = 4
+          Width = 99
+          Height = 13
+          Caption = 'Tipo de Manutenção'
+        end
+        object Label7: TLabel
+          Left = 5
+          Top = 28
+          Width = 68
+          Height = 13
+          Caption = 'Peça Trocada'
+        end
+        object Label9: TLabel
+          Left = 18
+          Top = 50
+          Width = 55
+          Height = 13
+          Caption = 'Quantidade'
+        end
+        object Label10: TLabel
+          Left = 133
+          Top = 51
+          Width = 40
+          Height = 13
+          Caption = 'Unidade'
+        end
+        object Label33: TLabel
+          Left = 149
+          Top = 74
+          Width = 24
+          Height = 13
+          Caption = 'Total'
+        end
+        object Label34: TLabel
+          Left = 10
+          Top = 74
+          Width = 63
+          Height = 13
+          Caption = 'Valor Unitario'
+        end
+        object DBLookupComboBox3: TDBLookupComboBox
+          Left = 108
+          Top = 1
+          Width = 145
+          Height = 21
+          DataField = 'CODDESP'
+          DataSource = dsOSerRe
+          KeyField = 'CODDESP'
+          ListField = 'TIPODESP'
+          ListSource = dsTServico
+          TabOrder = 0
+          OnDropDown = DBLookupComboBox3DropDown
+          OnKeyPress = DBEdit1KeyPress
+        end
+        object DBNavigator3: TDBNavigator
+          Left = 116
+          Top = 96
+          Width = 100
+          Height = 25
+          DataSource = dsOSerRe
+          VisibleButtons = [nbInsert, nbDelete, nbPost, nbCancel]
+          Hints.Strings = (
+            'Primeiro Registro'
+            'Registro Anterior'
+            'Registro Seguinte'
+            'Ultimo Registro'
+            'Incluir Registro'
+            'Excluir Registro'
+            'Editar Registro'
+            'Gravar Registro'
+            'Cancelar Operação'
+            'Atualizar')
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 1
+          OnClick = DBNavigator1Click
+        end
+        object DBEdit4: TDBEdit
+          Left = 76
+          Top = 24
+          Width = 177
+          Height = 21
+          DataField = 'NOMEPEC'
+          DataSource = dsOSerRe
+          TabOrder = 2
+        end
+        object DBEdit5: TDBEdit
+          Left = 76
+          Top = 47
+          Width = 45
+          Height = 21
+          DataField = 'QUANTP'
+          DataSource = dsOSerRe
+          TabOrder = 3
+          OnKeyPress = DBEdit1KeyPress
+        end
+        object DBComboBox2: TDBComboBox
+          Left = 176
+          Top = 47
+          Width = 78
+          Height = 21
+          DataField = 'UNIDADE'
+          DataSource = dsOSerRe
+          ItemHeight = 13
+          Items.Strings = (
+            'UN'
+            'UND'
+            'L'
+            'JG'
+            'PÇ'
+            'M'
+            'MM'
+            'K'
+            'GR')
+          TabOrder = 4
+        end
+        object DBEdit22: TDBEdit
+          Left = 76
+          Top = 70
+          Width = 45
+          Height = 21
+          DataField = 'VLRUNI'
+          DataSource = dsOSerRe
+          TabOrder = 5
+          OnKeyPress = DBEdit1KeyPress
+        end
+        object StaticText1: TStaticText
+          Left = 176
+          Top = 70
+          Width = 78
+          Height = 21
+          Alignment = taRightJustify
+          AutoSize = False
+          BorderStyle = sbsSunken
+          Color = clCaptionText
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clRed
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+          TabOrder = 6
+        end
+      end
+      object TabSheet2: TTabSheet
+        Caption = 'Caixa de Marcha'
+        ImageIndex = 1
+        object Label12: TLabel
+          Left = 6
+          Top = 4
+          Width = 99
+          Height = 13
+          Caption = 'Tipo de Manutenção'
+        end
+        object Label16: TLabel
+          Left = 221
+          Top = 248
+          Width = 24
+          Height = 13
+          Caption = 'Total'
+        end
+        object Label13: TLabel
+          Left = 5
+          Top = 28
+          Width = 68
+          Height = 13
+          Caption = 'Peça Trocada'
+        end
+        object Label14: TLabel
+          Left = 18
+          Top = 50
+          Width = 55
+          Height = 13
+          Caption = 'Quantidade'
+        end
+        object Label15: TLabel
+          Left = 133
+          Top = 51
+          Width = 40
+          Height = 13
+          Caption = 'Unidade'
+        end
+        object Label35: TLabel
+          Left = 149
+          Top = 74
+          Width = 24
+          Height = 13
+          Caption = 'Total'
+        end
+        object Label36: TLabel
+          Left = 10
+          Top = 74
+          Width = 63
+          Height = 13
+          Caption = 'Valor Unitario'
+        end
+        object DBLookupComboBox6: TDBLookupComboBox
+          Left = 108
+          Top = 1
+          Width = 145
+          Height = 21
+          DataField = 'CODDESP'
+          DataSource = dsOSerRe
+          KeyField = 'CODDESP'
+          ListField = 'TIPODESP'
+          ListSource = dsTServico
+          TabOrder = 0
+          OnDropDown = DBLookupComboBox3DropDown
+          OnKeyPress = DBEdit1KeyPress
+        end
+        object DBNavigator4: TDBNavigator
+          Left = 116
+          Top = 96
+          Width = 100
+          Height = 25
+          DataSource = dsOSerRe
+          VisibleButtons = [nbInsert, nbDelete, nbPost, nbCancel]
+          Hints.Strings = (
+            'Primeiro Registro'
+            'Registro Anterior'
+            'Registro Seguinte'
+            'Ultimo Registro'
+            'Incluir Registro'
+            'Excluir Registro'
+            'Editar Registro'
+            'Gravar Registro'
+            'Cancelar Operação'
+            'Atualizar')
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 1
+        end
+        object DBGrid2: TDBGrid
+          Left = 20
+          Top = 126
+          Width = 306
+          Height = 109
+          TabOrder = 2
+          TitleFont.Charset = DEFAULT_CHARSET
+          TitleFont.Color = clWindowText
+          TitleFont.Height = -11
+          TitleFont.Name = 'MS Sans Serif'
+          TitleFont.Style = []
+          OnCellClick = DBGrid1CellClick
+          Columns = <
+            item
+              Expanded = False
+              FieldName = 'NOMEPEC'
+              Title.Caption = 'Nome Peças'
+              Width = 208
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'VALORPEC'
+              Title.Caption = 'Vlr. Peças'
+              Visible = True
+            end>
+        end
+        object DBEdit9: TDBEdit
+          Left = 248
+          Top = 240
+          Width = 60
+          Height = 21
+          DataField = 'TOTAL'
+          DataSource = dsQTotal
+          TabOrder = 3
+        end
+        object DBEdit7: TDBEdit
+          Left = 76
+          Top = 24
+          Width = 177
+          Height = 21
+          DataField = 'NOMEPEC'
+          DataSource = dsOSerRe
+          TabOrder = 4
+        end
+        object DBEdit8: TDBEdit
+          Left = 76
+          Top = 47
+          Width = 45
+          Height = 21
+          DataField = 'QUANTP'
+          DataSource = dsOSerRe
+          TabOrder = 5
+          OnKeyPress = DBEdit1KeyPress
+        end
+        object DBComboBox3: TDBComboBox
+          Left = 176
+          Top = 47
+          Width = 78
+          Height = 21
+          DataField = 'UNIDADE'
+          DataSource = dsOSerRe
+          ItemHeight = 13
+          Items.Strings = (
+            'UN'
+            'UND'
+            'L'
+            'JG'
+            'PÇ'
+            'M'
+            'MM'
+            'K'
+            'GR')
+          TabOrder = 6
+        end
+        object DBEdit24: TDBEdit
+          Left = 76
+          Top = 70
+          Width = 45
+          Height = 21
+          DataField = 'VLRUNI'
+          DataSource = dsOSerRe
+          TabOrder = 7
+          OnKeyPress = DBEdit1KeyPress
+        end
+        object StaticText2: TStaticText
+          Left = 176
+          Top = 70
+          Width = 78
+          Height = 21
+          Alignment = taRightJustify
+          AutoSize = False
+          BorderStyle = sbsSunken
+          Color = clCaptionText
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clRed
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+          TabOrder = 8
+        end
+      end
+      object TabSheet3: TTabSheet
+        Caption = 'Diferencial'
+        ImageIndex = 2
+        object Label17: TLabel
+          Left = 6
+          Top = 4
+          Width = 99
+          Height = 13
+          Caption = 'Tipo de Manutenção'
+        end
+        object Label21: TLabel
+          Left = 221
+          Top = 248
+          Width = 24
+          Height = 13
+          Caption = 'Total'
+        end
+        object Label18: TLabel
+          Left = 5
+          Top = 28
+          Width = 68
+          Height = 13
+          Caption = 'Peça Trocada'
+        end
+        object Label19: TLabel
+          Left = 18
+          Top = 50
+          Width = 55
+          Height = 13
+          Caption = 'Quantidade'
+        end
+        object Label20: TLabel
+          Left = 133
+          Top = 51
+          Width = 40
+          Height = 13
+          Caption = 'Unidade'
+        end
+        object Label37: TLabel
+          Left = 149
+          Top = 74
+          Width = 24
+          Height = 13
+          Caption = 'Total'
+        end
+        object Label38: TLabel
+          Left = 10
+          Top = 74
+          Width = 63
+          Height = 13
+          Caption = 'Valor Unitario'
+        end
+        object DBLookupComboBox8: TDBLookupComboBox
+          Left = 108
+          Top = 1
+          Width = 145
+          Height = 21
+          DataField = 'CODDESP'
+          DataSource = dsOSerRe
+          KeyField = 'CODDESP'
+          ListField = 'TIPODESP'
+          ListSource = dsTServico
+          TabOrder = 0
+          OnDropDown = DBLookupComboBox3DropDown
+          OnKeyPress = DBEdit1KeyPress
+        end
+        object DBNavigator5: TDBNavigator
+          Left = 116
+          Top = 96
+          Width = 100
+          Height = 25
+          DataSource = dsOSerRe
+          VisibleButtons = [nbInsert, nbDelete, nbPost, nbCancel]
+          Hints.Strings = (
+            'Primeiro Registro'
+            'Registro Anterior'
+            'Registro Seguinte'
+            'Ultimo Registro'
+            'Incluir Registro'
+            'Excluir Registro'
+            'Editar Registro'
+            'Gravar Registro'
+            'Cancelar Operação'
+            'Atualizar')
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 1
+        end
+        object DBGrid3: TDBGrid
+          Left = 20
+          Top = 126
+          Width = 306
+          Height = 109
+          TabOrder = 2
+          TitleFont.Charset = DEFAULT_CHARSET
+          TitleFont.Color = clWindowText
+          TitleFont.Height = -11
+          TitleFont.Name = 'MS Sans Serif'
+          TitleFont.Style = []
+          OnCellClick = DBGrid1CellClick
+          Columns = <
+            item
+              Expanded = False
+              FieldName = 'NOMEPEC'
+              Title.Caption = 'Nome Peças'
+              Width = 208
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'VALORPEC'
+              Title.Caption = 'Vlr. Peças'
+              Visible = True
+            end>
+        end
+        object DBEdit12: TDBEdit
+          Left = 248
+          Top = 240
+          Width = 60
+          Height = 21
+          DataField = 'TOTAL'
+          DataSource = dsQTotal
+          TabOrder = 3
+        end
+        object DBEdit10: TDBEdit
+          Left = 76
+          Top = 24
+          Width = 177
+          Height = 21
+          DataField = 'NOMEPEC'
+          DataSource = dsOSerRe
+          TabOrder = 4
+        end
+        object DBEdit11: TDBEdit
+          Left = 76
+          Top = 47
+          Width = 45
+          Height = 21
+          DataField = 'QUANTP'
+          DataSource = dsOSerRe
+          TabOrder = 5
+          OnKeyPress = DBEdit1KeyPress
+        end
+        object DBComboBox4: TDBComboBox
+          Left = 176
+          Top = 47
+          Width = 78
+          Height = 21
+          DataField = 'UNIDADE'
+          DataSource = dsOSerRe
+          ItemHeight = 13
+          Items.Strings = (
+            'UN'
+            'UND'
+            'L'
+            'JG'
+            'PÇ'
+            'M'
+            'MM'
+            'K'
+            'GR')
+          TabOrder = 6
+        end
+        object DBEdit26: TDBEdit
+          Left = 76
+          Top = 70
+          Width = 45
+          Height = 21
+          DataField = 'VLRUNI'
+          DataSource = dsOSerRe
+          TabOrder = 7
+          OnKeyPress = DBEdit1KeyPress
+        end
+        object StaticText3: TStaticText
+          Left = 176
+          Top = 70
+          Width = 78
+          Height = 21
+          Alignment = taRightJustify
+          AutoSize = False
+          BorderStyle = sbsSunken
+          Color = clCaptionText
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clRed
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+          TabOrder = 8
+        end
+      end
+      object TabSheet4: TTabSheet
+        Caption = 'Parte Eletrica'
+        ImageIndex = 3
+        object Label22: TLabel
+          Left = 6
+          Top = 4
+          Width = 99
+          Height = 13
+          Caption = 'Tipo de Manutenção'
+        end
+        object Label26: TLabel
+          Left = 221
+          Top = 248
+          Width = 24
+          Height = 13
+          Caption = 'Total'
+        end
+        object Label23: TLabel
+          Left = 5
+          Top = 28
+          Width = 68
+          Height = 13
+          Caption = 'Peça Trocada'
+        end
+        object Label24: TLabel
+          Left = 18
+          Top = 50
+          Width = 55
+          Height = 13
+          Caption = 'Quantidade'
+        end
+        object Label25: TLabel
+          Left = 133
+          Top = 51
+          Width = 40
+          Height = 13
+          Caption = 'Unidade'
+        end
+        object Label39: TLabel
+          Left = 149
+          Top = 74
+          Width = 24
+          Height = 13
+          Caption = 'Total'
+        end
+        object Label40: TLabel
+          Left = 10
+          Top = 74
+          Width = 63
+          Height = 13
+          Caption = 'Valor Unitario'
+        end
+        object DBLookupComboBox10: TDBLookupComboBox
+          Left = 108
+          Top = 1
+          Width = 145
+          Height = 21
+          DataField = 'CODDESP'
+          DataSource = dsOSerRe
+          KeyField = 'CODDESP'
+          ListField = 'TIPODESP'
+          ListSource = dsTServico
+          TabOrder = 0
+          OnDropDown = DBLookupComboBox3DropDown
+          OnKeyPress = DBEdit1KeyPress
+        end
+        object DBNavigator6: TDBNavigator
+          Left = 116
+          Top = 96
+          Width = 100
+          Height = 25
+          DataSource = dsOSerRe
+          VisibleButtons = [nbInsert, nbDelete, nbPost, nbCancel]
+          Hints.Strings = (
+            'Primeiro Registro'
+            'Registro Anterior'
+            'Registro Seguinte'
+            'Ultimo Registro'
+            'Incluir Registro'
+            'Excluir Registro'
+            'Editar Registro'
+            'Gravar Registro'
+            'Cancelar Operação'
+            'Atualizar')
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 1
+        end
+        object DBGrid4: TDBGrid
+          Left = 20
+          Top = 126
+          Width = 306
+          Height = 109
+          TabOrder = 2
+          TitleFont.Charset = DEFAULT_CHARSET
+          TitleFont.Color = clWindowText
+          TitleFont.Height = -11
+          TitleFont.Name = 'MS Sans Serif'
+          TitleFont.Style = []
+          OnCellClick = DBGrid1CellClick
+          Columns = <
+            item
+              Expanded = False
+              FieldName = 'NOMEPEC'
+              Title.Caption = 'Nome Peças'
+              Width = 208
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'VALORPEC'
+              Title.Caption = 'Vlr. Peças'
+              Visible = True
+            end>
+        end
+        object DBEdit15: TDBEdit
+          Left = 248
+          Top = 240
+          Width = 60
+          Height = 21
+          DataField = 'TOTAL'
+          DataSource = dsQTotal
+          TabOrder = 3
+        end
+        object DBEdit13: TDBEdit
+          Left = 76
+          Top = 24
+          Width = 177
+          Height = 21
+          DataField = 'NOMEPEC'
+          DataSource = dsOSerRe
+          TabOrder = 4
+        end
+        object DBEdit14: TDBEdit
+          Left = 76
+          Top = 47
+          Width = 45
+          Height = 21
+          DataField = 'QUANTP'
+          DataSource = dsOSerRe
+          TabOrder = 5
+          OnKeyPress = DBEdit1KeyPress
+        end
+        object DBComboBox5: TDBComboBox
+          Left = 176
+          Top = 47
+          Width = 78
+          Height = 21
+          DataField = 'UNIDADE'
+          DataSource = dsOSerRe
+          ItemHeight = 13
+          Items.Strings = (
+            'UN'
+            'UND'
+            'L'
+            'JG'
+            'PÇ'
+            'M'
+            'MM'
+            'K'
+            'GR')
+          TabOrder = 6
+        end
+        object DBEdit28: TDBEdit
+          Left = 76
+          Top = 70
+          Width = 45
+          Height = 21
+          DataField = 'VLRUNI'
+          DataSource = dsOSerRe
+          TabOrder = 7
+          OnKeyPress = DBEdit1KeyPress
+        end
+        object StaticText4: TStaticText
+          Left = 176
+          Top = 70
+          Width = 78
+          Height = 21
+          Alignment = taRightJustify
+          AutoSize = False
+          BorderStyle = sbsSunken
+          Color = clCaptionText
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clRed
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+          TabOrder = 8
+        end
+      end
+      object TabSheet5: TTabSheet
+        Caption = 'Outros'
+        ImageIndex = 4
+        object Label27: TLabel
+          Left = 8
+          Top = 5
+          Width = 60
+          Height = 13
+          Caption = 'Manutenção'
+        end
+        object Label28: TLabel
+          Left = 0
+          Top = 28
+          Width = 68
+          Height = 13
+          Caption = 'Peça Trocada'
+        end
+        object Label29: TLabel
+          Left = 13
+          Top = 50
+          Width = 55
+          Height = 13
+          Caption = 'Quantidade'
+        end
+        object Label30: TLabel
+          Left = 5
+          Top = 74
+          Width = 63
+          Height = 13
+          Caption = 'Valor Unitario'
+        end
+        object Label31: TLabel
+          Left = 221
+          Top = 248
+          Width = 24
+          Height = 13
+          Caption = 'Total'
+        end
+        object Label3: TLabel
+          Left = 128
+          Top = 51
+          Width = 40
+          Height = 13
+          Caption = 'Unidade'
+        end
+        object Label32: TLabel
+          Left = 144
+          Top = 74
+          Width = 24
+          Height = 13
+          Caption = 'Total'
+        end
+        object Label41: TLabel
+          Left = 180
+          Top = 4
+          Width = 25
+          Height = 13
+          Caption = 'Parte'
+        end
+        object DBLookupComboBox12: TDBLookupComboBox
+          Left = 71
+          Top = 1
+          Width = 106
+          Height = 21
+          DataField = 'CODDESP'
+          DataSource = dsOSerRe
+          KeyField = 'CODDESP'
+          ListField = 'TIPODESP'
+          ListSource = dsTServico
+          TabOrder = 0
+          OnDropDown = DBLookupComboBox3DropDown
+          OnKeyPress = DBEdit1KeyPress
+        end
+        object DBEdit16: TDBEdit
+          Left = 71
+          Top = 47
+          Width = 45
+          Height = 21
+          DataField = 'QUANTP'
+          DataSource = dsOSerRe
+          TabOrder = 1
+          OnKeyPress = DBEdit1KeyPress
+        end
+        object DBEdit17: TDBEdit
+          Left = 71
+          Top = 70
+          Width = 45
+          Height = 21
+          DataField = 'VLRUNI'
+          DataSource = dsOSerRe
+          TabOrder = 2
+          OnKeyPress = DBEdit1KeyPress
+        end
+        object DBNavigator7: TDBNavigator
+          Left = 116
+          Top = 96
+          Width = 100
+          Height = 25
+          DataSource = dsOSerRe
+          VisibleButtons = [nbInsert, nbDelete, nbPost, nbCancel]
+          Hints.Strings = (
+            'Primeiro Registro'
+            'Registro Anterior'
+            'Registro Seguinte'
+            'Ultimo Registro'
+            'Incluir Registro'
+            'Excluir Registro'
+            'Editar Registro'
+            'Gravar Registro'
+            'Cancelar Operação'
+            'Atualizar')
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 3
+        end
+        object DBGrid5: TDBGrid
+          Left = 20
+          Top = 126
+          Width = 306
+          Height = 109
+          TabOrder = 4
+          TitleFont.Charset = DEFAULT_CHARSET
+          TitleFont.Color = clWindowText
+          TitleFont.Height = -11
+          TitleFont.Name = 'MS Sans Serif'
+          TitleFont.Style = []
+          OnCellClick = DBGrid1CellClick
+          Columns = <
+            item
+              Expanded = False
+              FieldName = 'NOMEPEC'
+              Title.Caption = 'Nome Peças'
+              Width = 208
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'VALORPEC'
+              Title.Caption = 'Vlr. Peças'
+              Visible = True
+            end>
+        end
+        object DBEdit18: TDBEdit
+          Left = 248
+          Top = 240
+          Width = 60
+          Height = 21
+          DataField = 'TOTAL'
+          DataSource = dsQTotal
+          TabOrder = 5
+        end
+        object DBEdit19: TDBEdit
+          Left = 71
+          Top = 24
+          Width = 177
+          Height = 21
+          DataField = 'NOMEPEC'
+          DataSource = dsOSerRe
+          TabOrder = 6
+        end
+        object DBComboBox1: TDBComboBox
+          Left = 171
+          Top = 47
+          Width = 78
+          Height = 21
+          DataField = 'UNIDADE'
+          DataSource = dsOSerRe
+          ItemHeight = 13
+          Items.Strings = (
+            'UN'
+            'UND'
+            'L'
+            'JG'
+            'PÇ'
+            'M'
+            'MM'
+            'K'
+            'GR')
+          TabOrder = 7
+        end
+        object StaticText5: TStaticText
+          Left = 171
+          Top = 70
+          Width = 78
+          Height = 21
+          Alignment = taRightJustify
+          AutoSize = False
+          BorderStyle = sbsSunken
+          Color = clCaptionText
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clRed
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+          TabOrder = 8
+        end
+        object DBEdit20: TDBEdit
+          Left = 209
+          Top = 1
+          Width = 99
+          Height = 21
+          DataField = 'PARTECAM'
+          DataSource = dsOSerRe
+          TabOrder = 9
+        end
+      end
+    end
+    object DBGrid1: TDBGrid
+      Left = 1
+      Top = 270
+      Width = 319
+      Height = 116
+      DataSource = dsQLista
+      TabOrder = 9
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'MS Sans Serif'
+      TitleFont.Style = []
+      OnCellClick = DBGrid1CellClick
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'PARTECAM'
+          Title.Caption = 'Nome da Parte'
+          Width = 100
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'NOMEPEC'
+          Title.Caption = 'Nome das Peças'
+          Width = 130
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'TOTAL'
+          Title.Caption = 'Vlr. Peças'
+          Width = 54
+          Visible = True
+        end>
+    end
+    object DBEdit6: TDBEdit
+      Left = 242
+      Top = 389
+      Width = 60
+      Height = 21
+      DataField = 'TOTAL'
+      DataSource = dsQTotal
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clRed
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 10
+    end
+  end
+  object TVeiculos: TSQLQuery
+    Database = FPrincipal.BasePrincipal
+    Transaction = FPrincipal.IBTransaction1
+    Active = True
+    FieldDefs = <
+      item
+        Name = 'CODVEIC'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'CHASSI'
+        DataType = ftString
+        Size = 30
+      end
+      item
+        Name = 'PLACA'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'MARCAVEIC'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'MODELOVEIC'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'NOMEVEIC'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'ANOVEIC'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'PROCEDVEIC'
+        DataType = ftString
+        Size = 80
+      end
+      item
+        Name = 'TERCEIRIZADO'
+        DataType = ftSmallint
+      end>
+    IndexDefs = <
+      item
+        Name = 'RDB$PRIMARY2'
+        Fields = 'CODVEIC'
+        Options = [ixPrimary, ixUnique]
+      end
+      item
+        Name = 'PLACA'
+        Fields = 'PLACA'
+      end>
+    IndexName = 'PLACA'
+    Left = 70
+    Top = 297
+    object TVeiculosCODVEIC: TIntegerField
+      FieldName = 'CODVEIC'
+    end
+    object TVeiculosCHASSI: TIBStringField
+      FieldName = 'CHASSI'
+      Size = 30
+    end
+    object TVeiculosPLACA: TIBStringField
+      FieldName = 'PLACA'
+      Size = 10
+    end
+    object TVeiculosMARCAVEIC: TIBStringField
+      FieldName = 'MARCAVEIC'
+    end
+    object TVeiculosMODELOVEIC: TIBStringField
+      FieldName = 'MODELOVEIC'
+    end
+    object TVeiculosNOMEVEIC: TIBStringField
+      FieldName = 'NOMEVEIC'
+    end
+    object TVeiculosANOVEIC: TIBStringField
+      FieldName = 'ANOVEIC'
+      Size = 10
+    end
+    object TVeiculosPROCEDVEIC: TIBStringField
+      FieldName = 'PROCEDVEIC'
+      Size = 80
+    end
+    object TVeiculosTERCEIRIZADO: TSmallintField
+      FieldName = 'TERCEIRIZADO'
+    end
+  end
+  object TTServico: TSQLQuery
+    Database = FPrincipal.BasePrincipal
+    Transaction = FPrincipal.IBTransaction1
+    Active = True
+    FieldDefs = <
+      item
+        Name = 'CODDESP'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'TIPODESP'
+        DataType = ftString
+        Size = 40
+      end
+      item
+        Name = 'DESCDESP'
+        DataType = ftMemo
+        Size = 8
+      end
+      item
+        Name = 'VALRSDESP'
+        DataType = ftInteger
+      end>
+    IndexDefs = <
+      item
+        Name = 'RDB$PRIMARY10'
+        Fields = 'CODDESP'
+        Options = [ixPrimary, ixUnique]
+      end
+      item
+        Name = 'TIPODESP'
+        Fields = 'TIPODESP'
+      end>
+    IndexName = 'TIPODESP'
+    Left = 19
+    Top = 295
+    object TTServicoCODDESP: TIntegerField
+      FieldName = 'CODDESP'
+    end
+    object TTServicoTIPODESP: TIBStringField
+      FieldName = 'TIPODESP'
+      Size = 40
+    end
+    object TTServicoDESCDESP: TMemoField
+      FieldName = 'DESCDESP'
+      BlobType = ftMemo
+      Size = 8
+    end
+    object TTServicoVALRSDESP: TIntegerField
+      FieldName = 'VALRSDESP'
+    end
+  end
+  object dsOServico: TDataSource
+    DataSet = TOServico
+    Left = 175
+    Top = 340
+  end
+  object dsVeiculos: TDataSource
+    DataSet = TVeiculos
+    Left = 72
+    Top = 341
+  end
+  object dsTServico: TDataSource
+    DataSet = TTServico
+    Left = 16
+    Top = 341
+  end
+  object TOServico: TSQLQuery
+    Database = FPrincipal.BasePrincipal
+    Transaction = FPrincipal.IBTransaction1
+    AfterInsert = TOServicoAfterInsert
+    AfterPost = TOServicoAfterPost
+    BeforeDelete = TOServicoBeforeDelete
+    BeforeInsert = TOServicoBeforeInsert
+    Active = True
+    FieldDefs = <
+      item
+        Name = 'CODOS'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'CODVEIC'
+        DataType = ftInteger
+      end
+      item
+        Name = 'KM'
+        DataType = ftInteger
+      end
+      item
+        Name = 'DATA'
+        DataType = ftDate
+      end
+      item
+        Name = 'CODOF'
+        DataType = ftInteger
+      end
+      item
+        Name = 'NUMEROOS'
+        DataType = ftFloat
+      end>
+    IndexDefs = <
+      item
+        Name = 'RDB$PRIMARY31'
+        Fields = 'CODOS'
+        Options = [ixPrimary, ixUnique]
+      end>
+    Left = 174
+    Top = 295
+    object TOServicoCODOS: TIntegerField
+      FieldName = 'CODOS'
+    end
+    object TOServicoCODVEIC: TIntegerField
+      FieldName = 'CODVEIC'
+    end
+    object TOServicoKM: TIntegerField
+      FieldName = 'KM'
+    end
+    object TOServicoDATA: TDateField
+      FieldName = 'DATA'
+      EditMask = '!99/99/0000;1;_'
+    end
+    object TOServicoCODOF: TIntegerField
+      FieldName = 'CODOF'
+    end
+    object TOServicoNUMEROOS: TFloatField
+      FieldName = 'NUMEROOS'
+    end
+  end
+  object QTotal: TSQLQuery
+    Database = FPrincipal.BasePrincipal
+    Transaction = FPrincipal.IBTransaction1
+    Active = True
+    SQL.Strings = (
+      
+        'Select sum(Ordems_Re.VLRUNI*Ordems_Re.QUANTP) as Total From Orde' +
+        'ms, Ordems_Re Where (Ordems.CODOS=Ordems_Re.CODOS) and (Ordems.C' +
+        'ODOS=30);')
+    Left = 274
+    Top = 294
+    object QTotalTOTAL: TFloatField
+      FieldName = 'TOTAL'
+      currency = True
+    end
+  end
+  object dsQTotal: TDataSource
+    DataSet = QTotal
+    Left = 277
+    Top = 339
+  end
+  object QControle: TSQLQuery
+    Database = FPrincipal.BasePrincipal
+    Transaction = FPrincipal.IBTransaction1
+    Left = 30
+    Top = 10
+  end
+  object dsQControle: TDataSource
+    DataSet = QControle
+    Left = 27
+    Top = 56
+  end
+  object TOSerRe: TSQLQuery
+    Database = FPrincipal.BasePrincipal
+    Transaction = FPrincipal.IBTransaction1
+    AfterDelete = TOSerReAfterPost
+    AfterInsert = TOSerReAfterPost
+    AfterPost = TOSerReAfterPost
+    BeforePost = TOSerReBeforePost
+    Active = True
+    FieldDefs = <
+      item
+        Name = 'CODOSRE'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'CODDESP'
+        DataType = ftInteger
+      end
+      item
+        Name = 'CODOS'
+        DataType = ftInteger
+      end
+      item
+        Name = 'NOMEPEC'
+        DataType = ftString
+        Size = 40
+      end
+      item
+        Name = 'VLRUNI'
+        DataType = ftBCD
+        Precision = 18
+        Size = 4
+      end
+      item
+        Name = 'QUANTP'
+        DataType = ftBCD
+        Precision = 18
+        Size = 4
+      end
+      item
+        Name = 'UNIDADE'
+        DataType = ftString
+        Size = 5
+      end
+      item
+        Name = 'PARTECAM'
+        DataType = ftString
+        Size = 30
+      end>
+    IndexDefs = <
+      item
+        Name = 'RDB$PRIMARY37'
+        Fields = 'CODOSRE'
+        Options = [ixPrimary, ixUnique]
+      end>
+    Left = 227
+    Top = 294
+    object TOSerReCODOSRE: TIntegerField
+      FieldName = 'CODOSRE'
+    end
+    object TOSerReCODDESP: TIntegerField
+      FieldName = 'CODDESP'
+    end
+    object TOSerReCODOS: TIntegerField
+      FieldName = 'CODOS'
+    end
+    object TOSerReNOMEPEC: TIBStringField
+      FieldName = 'NOMEPEC'
+      Size = 40
+    end
+    object TOSerReVLRUNI: TIBBCDField
+      FieldName = 'VLRUNI'
+      Precision = 18
+      Size = 4
+    end
+    object TOSerReQUANTP: TIBBCDField
+      FieldName = 'QUANTP'
+      Precision = 18
+      Size = 4
+    end
+    object TOSerReUNIDADE: TIBStringField
+      FieldName = 'UNIDADE'
+      Size = 5
+    end
+    object TOSerRePARTECAM: TIBStringField
+      FieldName = 'PARTECAM'
+      Size = 30
+    end
+  end
+  object dsOSerRe: TDataSource
+    DataSet = TOSerRe
+    Left = 228
+    Top = 339
+  end
+  object dsQInsDel: TDataSource
+    DataSet = QInsDel
+    Left = 83
+    Top = 56
+  end
+  object QInsDel: TSQLQuery
+    Database = FPrincipal.BasePrincipal
+    Transaction = FPrincipal.IBTransaction1
+    Left = 79
+    Top = 12
+  end
+  object TOficina: TSQLQuery
+    Database = FPrincipal.BasePrincipal
+    Transaction = FPrincipal.IBTransaction1
+    Active = True
+    FieldDefs = <
+      item
+        Name = 'CODOF'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'CODCID'
+        DataType = ftInteger
+      end
+      item
+        Name = 'CODEST'
+        DataType = ftInteger
+      end
+      item
+        Name = 'NOMEOF'
+        DataType = ftString
+        Size = 40
+      end
+      item
+        Name = 'RAZAOSOF'
+        DataType = ftString
+        Size = 40
+      end
+      item
+        Name = 'ENDERECOOF'
+        DataType = ftString
+        Size = 40
+      end
+      item
+        Name = 'BAIRROOF'
+        DataType = ftString
+        Size = 40
+      end
+      item
+        Name = 'CEPOF'
+        DataType = ftString
+        Size = 10
+      end
+      item
+        Name = 'FONEOF'
+        DataType = ftString
+        Size = 15
+      end>
+    IndexDefs = <
+      item
+        Name = 'RDB$PRIMARY46'
+        Fields = 'CODOF'
+        Options = [ixPrimary, ixUnique]
+      end
+      item
+        Name = 'NOMEOF'
+        Fields = 'NOMEOF'
+      end>
+    IndexName = 'NOMEOF'
+    Left = 121
+    Top = 297
+    object TOficinaCODOF: TIntegerField
+      FieldName = 'CODOF'
+    end
+    object TOficinaCODCID: TIntegerField
+      FieldName = 'CODCID'
+    end
+    object TOficinaCODEST: TIntegerField
+      FieldName = 'CODEST'
+    end
+    object TOficinaNOMEOF: TIBStringField
+      FieldName = 'NOMEOF'
+      Size = 40
+    end
+    object TOficinaRAZAOSOF: TIBStringField
+      FieldName = 'RAZAOSOF'
+      Size = 40
+    end
+    object TOficinaENDERECOOF: TIBStringField
+      FieldName = 'ENDERECOOF'
+      Size = 40
+    end
+    object TOficinaBAIRROOF: TIBStringField
+      FieldName = 'BAIRROOF'
+      Size = 40
+    end
+    object TOficinaCEPOF: TIBStringField
+      FieldName = 'CEPOF'
+      Size = 10
+    end
+    object TOficinaFONEOF: TIBStringField
+      FieldName = 'FONEOF'
+      Size = 15
+    end
+  end
+  object dsOficina: TDataSource
+    DataSet = TOficina
+    Left = 123
+    Top = 340
+  end
+  object QLista: TSQLQuery
+    Database = FPrincipal.BasePrincipal
+    Transaction = FPrincipal.IBTransaction1
+    Active = True
+    SQL.Strings = (
+      
+        'Select Ordems_Re.PARTECAM, Ordems_Re.NOMEPEC, (Ordems_Re.VLRUNI*' +
+        'Ordems_Re.QUANTP) as Total From Ordems, Ordems_Re Where (Ordems.' +
+        'CODOS=Ordems_Re.CODOS) and (Ordems.CODOS=30);')
+    Left = 277
+    Top = 171
+    object QListaPARTECAM: TIBStringField
+      FieldName = 'PARTECAM'
+      Origin = 'ORDEMS_RE.PARTECAM'
+      Size = 30
+    end
+    object QListaNOMEPEC: TIBStringField
+      FieldName = 'NOMEPEC'
+      Origin = 'ORDEMS_RE.NOMEPEC'
+      Size = 40
+    end
+    object QListaTOTAL: TFloatField
+      FieldName = 'TOTAL'
+    end
+  end
+  object dsQLista: TDataSource
+    DataSet = QLista
+    Left = 277
+    Top = 219
+  end
+end

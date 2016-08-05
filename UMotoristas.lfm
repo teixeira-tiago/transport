@@ -1,0 +1,432 @@
+object FMotoristas: TFMotoristas
+  Left = 285
+  Top = 222
+  Width = 636
+  Height = 422
+  BorderIcons = [biSystemMenu]
+  Caption = 'Cadastro de Motoristas'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  FormStyle = fsMDIChild
+  Position = poMainFormCenter
+  Visible = True
+  OnClose = FormClose
+  PixelsPerInch = 96
+  object PageControl1: TPageControl
+    Left = 0
+    Top = 0
+    Width = 628
+    Height = 395
+    ActivePage = TabSheet1
+    Align = alClient
+    TabOrder = 0
+    object TabSheet1: TTabSheet
+      Caption = 'Motoristas'
+      object Label3: TLabel
+        Left = 234
+        Top = 12
+        Width = 28
+        Height = 13
+        Caption = 'Nome'
+        FocusControl = DBEdit2
+      end
+      object Label4: TLabel
+        Left = 27
+        Top = 37
+        Width = 46
+        Height = 13
+        Caption = 'Endereço'
+        FocusControl = DBEdit3
+      end
+      object Label5: TLabel
+        Left = 345
+        Top = 37
+        Width = 27
+        Height = 13
+        Caption = 'Bairro'
+        FocusControl = DBEdit4
+      end
+      object Label6: TLabel
+        Left = 40
+        Top = 62
+        Width = 33
+        Height = 13
+        Caption = 'Cidade'
+      end
+      object Label7: TLabel
+        Left = 354
+        Top = 61
+        Width = 33
+        Height = 13
+        Caption = 'Estado'
+      end
+      object Label8: TLabel
+        Left = 547
+        Top = 62
+        Width = 14
+        Height = 13
+        Caption = 'UF'
+        FocusControl = DBEdit6
+      end
+      object Label9: TLabel
+        Left = 213
+        Top = 87
+        Width = 24
+        Height = 13
+        Caption = 'Fone'
+        FocusControl = DBEdit5
+      end
+      object Label10: TLabel
+        Left = 403
+        Top = 87
+        Width = 32
+        Height = 13
+        Caption = 'Celular'
+        FocusControl = DBEdit7
+      end
+      object Label11: TLabel
+        Left = 52
+        Top = 86
+        Width = 21
+        Height = 13
+        Caption = 'CEP'
+        FocusControl = DBEdit8
+      end
+      object Panel1: TPanel
+        Left = 0
+        Top = 306
+        Width = 620
+        Height = 61
+        Align = alBottom
+        TabOrder = 13
+        object Label1: TLabel
+          Left = 9
+          Top = 24
+          Width = 56
+          Height = 13
+          Caption = 'Localizar:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Edit1: TEdit
+          Left = 68
+          Top = 20
+          Width = 165
+          Height = 21
+          TabOrder = 0
+          OnChange = Edit1Change
+        end
+      end
+      object Panel2: TPanel
+        Left = 0
+        Top = 157
+        Width = 620
+        Height = 149
+        Align = alBottom
+        TabOrder = 12
+        object DBGrid1: TDBGrid
+          Left = 1
+          Top = 1
+          Width = 618
+          Height = 147
+          Align = alClient
+          DataSource = DataSource1
+          TabOrder = 0
+          TitleFont.Charset = DEFAULT_CHARSET
+          TitleFont.Color = clWindowText
+          TitleFont.Height = -11
+          TitleFont.Name = 'MS Sans Serif'
+          TitleFont.Style = []
+          Columns = <
+            item
+              Expanded = False
+              FieldName = 'NOMEMOT'
+              Title.Caption = 'Nome'
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'EDERECOMOT'
+              Title.Caption = 'Endereço'
+              Width = 200
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'FONEMOT'
+              Title.Caption = 'Telefone'
+              Width = 70
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'CELULARMOT'
+              Title.Caption = 'Celular'
+              Width = 70
+              Visible = True
+            end>
+        end
+      end
+      object Panel3: TPanel
+        Left = 0
+        Top = 116
+        Width = 620
+        Height = 41
+        Align = alBottom
+        TabOrder = 11
+        object DBNavigator1: TDBNavigator
+          Left = 260
+          Top = 8
+          Width = 100
+          Height = 25
+          DataSource = DataSource1
+          VisibleButtons = [nbInsert, nbDelete, nbPost, nbCancel]
+          Hints.Strings = (
+            'Primeiro Registro'
+            'Registro Anterior'
+            'Registro Seguinte'
+            'Ultimo Registro'
+            'Incluir Registro'
+            'Excluir Registro'
+            'Editar Registro'
+            'Gravar Registro'
+            'Cancelar Operação'
+            'Atualizar')
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 0
+          OnClick = DBNavigator1Click
+        end
+        object BitBtn1: TBitBtn
+          Left = 367
+          Top = 8
+          Width = 62
+          Height = 25
+          Hint = 'Close'
+          Caption = 'Fechar'
+          TabOrder = 1
+          OnClick = BitBtn1Click
+          Kind = bkClose
+        end
+      end
+      object DBEdit1: TDBEdit
+        Left = 104
+        Top = 8
+        Width = 117
+        Height = 21
+        DataField = 'DOCMOT'
+        DataSource = DataSource1
+        TabOrder = 1
+        OnClick = DBEdit1Click
+        OnExit = DBEdit1Exit
+        OnKeyPress = DBEdit1KeyPress
+      end
+      object DBEdit2: TDBEdit
+        Left = 265
+        Top = 8
+        Width = 327
+        Height = 21
+        DataField = 'NOMEMOT'
+        DataSource = DataSource1
+        TabOrder = 2
+        OnKeyPress = DBEdit1KeyPress
+      end
+      object DBEdit3: TDBEdit
+        Left = 76
+        Top = 33
+        Width = 259
+        Height = 21
+        DataField = 'EDERECOMOT'
+        DataSource = DataSource1
+        TabOrder = 3
+        OnKeyPress = DBEdit1KeyPress
+      end
+      object DBEdit4: TDBEdit
+        Left = 375
+        Top = 33
+        Width = 217
+        Height = 21
+        DataField = 'BAIRROMOT'
+        DataSource = DataSource1
+        TabOrder = 4
+        OnKeyPress = DBEdit1KeyPress
+      end
+      object DBEdit6: TDBEdit
+        Left = 564
+        Top = 58
+        Width = 29
+        Height = 21
+        DataField = 'SIGLAEST'
+        DataSource = DataSource3
+        TabOrder = 7
+        OnKeyPress = DBEdit1KeyPress
+      end
+      object DBEdit5: TDBEdit
+        Left = 240
+        Top = 83
+        Width = 149
+        Height = 21
+        DataField = 'FONEMOT'
+        DataSource = DataSource1
+        TabOrder = 9
+        OnKeyPress = DBEdit1KeyPress
+      end
+      object DBEdit7: TDBEdit
+        Left = 438
+        Top = 83
+        Width = 156
+        Height = 21
+        DataField = 'CELULARMOT'
+        DataSource = DataSource1
+        TabOrder = 10
+        OnKeyPress = DBEdit1KeyPress
+      end
+      object DBEdit8: TDBEdit
+        Left = 76
+        Top = 83
+        Width = 116
+        Height = 21
+        DataField = 'CEPMOT'
+        DataSource = DataSource1
+        TabOrder = 8
+        OnKeyPress = DBEdit1KeyPress
+      end
+      object DBLookupComboBox1: TDBLookupComboBox
+        Left = 76
+        Top = 58
+        Width = 260
+        Height = 21
+        DataField = 'CODCID'
+        DataSource = DataSource1
+        KeyField = 'CODCID'
+        ListField = 'NOMECID'
+        ListSource = DataSource2
+        TabOrder = 5
+        OnDropDown = DBLookupComboBox1DropDown
+        OnKeyPress = DBEdit1KeyPress
+      end
+      object DBLookupComboBox2: TDBLookupComboBox
+        Left = 390
+        Top = 58
+        Width = 142
+        Height = 21
+        DataField = 'CODEST'
+        DataSource = DataSource1
+        KeyField = 'CODEST'
+        ListField = 'NOMEEST'
+        ListSource = DataSource3
+        TabOrder = 6
+        OnDropDown = DBLookupComboBox2DropDown
+        OnKeyPress = DBEdit1KeyPress
+      end
+      object RadioGroup2: TRadioGroup
+        Left = 0
+        Top = -1
+        Width = 105
+        Height = 33
+        Columns = 2
+        ItemIndex = 1
+        Items.Strings = (
+          'CNPJ'
+          'CPF')
+        TabOrder = 0
+      end
+    end
+  end
+  object DataSource1: TDataSource
+    DataSet = TMotoristas
+    Left = 32
+    Top = 288
+  end
+  object DataSource2: TDataSource
+    DataSet = TCidade
+    Left = 128
+    Top = 292
+  end
+  object DataSource3: TDataSource
+    DataSet = TEstado
+    Left = 224
+    Top = 292
+  end
+  object TMotoristas: TSQLQuery
+    Database = FPrincipal.BasePrincipal
+    Transaction = FPrincipal.IBTransaction1
+    Left = 32
+    Top = 244
+    object TMotoristasCODMOT: TIntegerField
+      FieldName = 'CODMOT'
+      Visible = False
+    end
+    object TMotoristasCODCID: TIntegerField
+      FieldName = 'CODCID'
+      Visible = False
+    end
+    object TMotoristasCODEST: TIntegerField
+      DisplayLabel = 'Estado'
+      FieldName = 'CODEST'
+      Visible = False
+    end
+    object TMotoristasDOCMOT: TIBStringField
+      FieldName = 'DOCMOT'
+    end
+    object TMotoristasNOMEMOT: TIBStringField
+      FieldName = 'NOMEMOT'
+      Size = 40
+    end
+    object TMotoristasEDERECOMOT: TIBStringField
+      FieldName = 'EDERECOMOT'
+      Size = 40
+    end
+    object TMotoristasBAIRROMOT: TIBStringField
+      FieldName = 'BAIRROMOT'
+      Size = 40
+    end
+    object TMotoristasCEPMOT: TIBStringField
+      FieldName = 'CEPMOT'
+      EditMask = '00000\-999;1;_'
+      Size = 10
+    end
+    object TMotoristasFONEMOT: TIBStringField
+      FieldName = 'FONEMOT'
+      EditMask = '!\(99\)0000-0000;1;_'
+      Size = 15
+    end
+    object TMotoristasCELULARMOT: TIBStringField
+      FieldName = 'CELULARMOT'
+      EditMask = '!\(99\)0000-0000;1;_'
+      Size = 15
+    end
+  end
+  object TCidade: TSQLQuery
+    Database = FPrincipal.BasePrincipal
+    Transaction = FPrincipal.IBTransaction1
+    IndexName = 'NOMECID'
+    Left = 128
+    Top = 236
+    object TCidadeCODCID: TIntegerField
+      FieldName = 'CODCID'
+    end
+    object TCidadeCODEST: TIntegerField
+      FieldName = 'CODEST'
+    end
+    object TCidadeNOMECID: TIBStringField
+      FieldName = 'NOMECID'
+      Size = 30
+    end
+  end
+  object TEstado: TSQLQuery
+    Database = FPrincipal.BasePrincipal
+    Transaction = FPrincipal.IBTransaction1
+    IndexName = 'NOMEEST'
+    Left = 224
+    Top = 240
+  end
+end

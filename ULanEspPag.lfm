@@ -1,0 +1,823 @@
+object FLanEspPag: TFLanEspPag
+  Left = 774
+  Height = 367
+  Top = 257
+  Width = 383
+  BorderIcons = [biSystemMenu]
+  Caption = 'Lançamentos Especiais a Pagar'
+  ClientHeight = 367
+  ClientWidth = 383
+  Color = clBtnFace
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  FormStyle = fsMDIChild
+  OnClose = FormClose
+  Position = poMainFormCenter
+  LCLVersion = '1.6.0.4'
+  Visible = True
+  object Panel1: TPanel
+    Left = 0
+    Height = 367
+    Top = 0
+    Width = 383
+    Align = alClient
+    ClientHeight = 367
+    ClientWidth = 383
+    TabOrder = 0
+    object Label1: TLabel
+      Left = 15
+      Height = 13
+      Top = 16
+      Width = 54
+      Caption = 'Fornecedor'
+      ParentColor = False
+    end
+    object Label2: TLabel
+      Left = 18
+      Height = 13
+      Top = 38
+      Width = 53
+      Caption = 'Nota Fiscal'
+      ParentColor = False
+    end
+    object Label3: TLabel
+      Left = 81
+      Height = 13
+      Top = 38
+      Width = 39
+      Caption = 'Emissão'
+      ParentColor = False
+    end
+    object Label4: TLabel
+      Left = 150
+      Height = 13
+      Top = 38
+      Width = 56
+      Caption = 'Vencimento'
+      ParentColor = False
+    end
+    object Label5: TLabel
+      Left = 220
+      Height = 13
+      Top = 37
+      Width = 86
+      Caption = 'Valor Lançamento'
+      ParentColor = False
+    end
+    object Label6: TLabel
+      Left = 313
+      Height = 13
+      Top = 37
+      Width = 25
+      Caption = 'Parc.'
+      ParentColor = False
+    end
+    object Label7: TLabel
+      Left = 11
+      Height = 13
+      Top = 81
+      Width = 65
+      Caption = 'Plano Nível 1'
+      ParentColor = False
+    end
+    object Label8: TLabel
+      Left = 346
+      Height = 13
+      Top = 38
+      Width = 22
+      Caption = 'Des.'
+      ParentColor = False
+    end
+    object Label9: TLabel
+      Left = 11
+      Height = 13
+      Top = 105
+      Width = 65
+      Caption = 'Plano Nível 2'
+      ParentColor = False
+    end
+    object Label10: TLabel
+      Left = 114
+      Height = 13
+      Top = 129
+      Width = 26
+      Caption = 'Local'
+      ParentColor = False
+    end
+    object Label11: TLabel
+      Left = 22
+      Height = 13
+      Top = 129
+      Width = 54
+      Caption = 'Pré Datado'
+      ParentColor = False
+    end
+    object Label12: TLabel
+      Left = 209
+      Height = 13
+      Top = 129
+      Width = 52
+      Caption = 'Movimento'
+      ParentColor = False
+    end
+    object Label13: TLabel
+      Left = 11
+      Height = 13
+      Top = 151
+      Width = 63
+      Caption = 'Observações'
+      ParentColor = False
+    end
+    object Label14: TLabel
+      Left = 12
+      Height = 13
+      Top = 258
+      Width = 114
+      Caption = 'Descrisão Complemento'
+      ParentColor = False
+    end
+    object RadioGroup1: TRadioGroup
+      Left = 284
+      Height = 51
+      Top = 71
+      Width = 94
+      AutoFill = True
+      ChildSizing.LeftRightSpacing = 6
+      ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+      ChildSizing.EnlargeVertical = crsHomogenousChildResize
+      ChildSizing.ShrinkHorizontal = crsScaleChilds
+      ChildSizing.ShrinkVertical = crsScaleChilds
+      ChildSizing.Layout = cclLeftToRightThenTopToBottom
+      ChildSizing.ControlsPerLine = 1
+      ClientHeight = 33
+      ClientWidth = 90
+      Items.Strings = (
+        'Complemento'
+        'Complemento'
+      )
+      TabOrder = 9
+    end
+    object DBLookupComboBox1: TDBLookupComboBox
+      Left = 72
+      Height = 21
+      Top = 11
+      Width = 145
+      DataField = 'CODFORN'
+      DataSource = dsLancamento
+      KeyField = 'CODFORN'
+      ListField = 'NOMEFORN'
+      ListFieldIndex = 0
+      ListSource = dsFornecedores
+      LookupCache = False
+      OnDropDown = DBLookupComboBox1DropDown
+      OnKeyPress = DBEdit1KeyPress
+      TabOrder = 0
+    end
+    object DBEdit1: TDBEdit
+      Left = 16
+      Height = 21
+      Top = 53
+      Width = 60
+      DataField = 'NFLANC'
+      DataSource = dsLancamento
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 1
+      OnKeyPress = DBEdit1KeyPress
+    end
+    object DBEdit2: TDBEdit
+      Left = 79
+      Height = 21
+      Top = 53
+      Width = 67
+      DataField = 'EMISLANC'
+      DataSource = dsLancamento
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 2
+      OnKeyPress = DBEdit1KeyPress
+    end
+    object DBEdit3: TDBEdit
+      Left = 148
+      Height = 21
+      Top = 53
+      Width = 67
+      DataField = 'VENCLANC'
+      DataSource = dsLancamento
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 3
+      OnKeyPress = DBEdit1KeyPress
+    end
+    object DBEdit4: TDBEdit
+      Left = 217
+      Height = 21
+      Top = 53
+      Width = 91
+      DataField = 'VLLANC'
+      DataSource = dsLancamento
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 4
+      OnKeyPress = DBEdit1KeyPress
+    end
+    object DBEdit5: TDBEdit
+      Left = 310
+      Height = 21
+      Top = 53
+      Width = 30
+      DataField = 'PARCLANC'
+      DataSource = dsLancamento
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 5
+      OnKeyPress = DBEdit1KeyPress
+    end
+    object DBEdit6: TDBEdit
+      Left = 343
+      Height = 21
+      Top = 53
+      Width = 30
+      DataField = 'DESDLANC'
+      DataSource = dsLancamento
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 6
+      OnKeyPress = DBEdit1KeyPress
+    end
+    object DBEdit7: TDBEdit
+      Left = 226
+      Height = 21
+      Top = 77
+      Width = 56
+      DataField = 'CODIGOPCN1'
+      DataSource = dsPlanoContN1
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 8
+      OnKeyPress = DBEdit1KeyPress
+    end
+    object DBEdit8: TDBEdit
+      Left = 226
+      Height = 21
+      Top = 101
+      Width = 56
+      DataField = 'CODIGOPCN2'
+      DataSource = dsPlanoContN2
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 11
+      OnKeyPress = DBEdit1KeyPress
+    end
+    object DBEdit9: TDBEdit
+      Left = 143
+      Height = 21
+      Top = 125
+      Width = 60
+      DataField = 'AUXLANC'
+      DataSource = dsLancamento
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 13
+      OnKeyPress = DBEdit1KeyPress
+    end
+    object DBEdit10: TDBEdit
+      Left = 79
+      Height = 21
+      Top = 125
+      Width = 30
+      DataField = 'PRELANC'
+      DataSource = dsLancamento
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 12
+      OnKeyPress = DBEdit1KeyPress
+    end
+    object DBEdit11: TDBEdit
+      Left = 10
+      Height = 21
+      Top = 273
+      Width = 349
+      DataField = 'DESCLANC'
+      DataSource = dsLancamento
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 16
+      OnKeyPress = DBEdit1KeyPress
+    end
+    object DBLookupComboBox2: TDBLookupComboBox
+      Left = 79
+      Height = 21
+      Top = 77
+      Width = 145
+      DataField = 'CODPCN1'
+      DataSource = dsLancamento
+      KeyField = 'CODIGOPCN1'
+      ListField = 'DESCPCN1'
+      ListFieldIndex = 0
+      ListSource = dsPlanoContN1
+      LookupCache = False
+      OnDropDown = DBLookupComboBox2DropDown
+      OnKeyPress = DBEdit1KeyPress
+      TabOrder = 7
+    end
+    object DBLookupComboBox3: TDBLookupComboBox
+      Left = 79
+      Height = 21
+      Top = 101
+      Width = 145
+      DataField = 'CODPCN2'
+      DataSource = dsLancamento
+      KeyField = 'CODIGOPCN2'
+      ListField = 'DESCPCN2'
+      ListFieldIndex = 0
+      ListSource = dsPlanoContN2
+      LookupCache = False
+      OnDropDown = DBLookupComboBox3DropDown
+      OnKeyPress = DBEdit1KeyPress
+      TabOrder = 10
+    end
+    object DBMemo1: TDBMemo
+      Left = 9
+      Height = 89
+      Top = 166
+      Width = 350
+      DataField = 'OBSLANC'
+      DataSource = dsLancamento
+      TabOrder = 15
+    end
+    object DBNavigator1: TDBNavigator
+      Left = 12
+      Height = 25
+      Top = 308
+      Width = 100
+      BevelOuter = bvNone
+      ChildSizing.EnlargeHorizontal = crsScaleChilds
+      ChildSizing.EnlargeVertical = crsScaleChilds
+      ChildSizing.ShrinkHorizontal = crsScaleChilds
+      ChildSizing.ShrinkVertical = crsScaleChilds
+      ChildSizing.Layout = cclLeftToRightThenTopToBottom
+      ChildSizing.ControlsPerLine = 100
+      ClientHeight = 25
+      ClientWidth = 100
+      DataSource = dsLancamento
+      Hints.Strings = (
+        'Primeiro Registro'
+        'Registro Anterior'
+        'Registro Seguinte'
+        'Ultimo Registro'
+        'Incluir Registro'
+        'Excluir Registro'
+        'Editar Registro'
+        'Gravar Registro'
+        'Cancelar Operação'
+        'Atualizar'
+      )
+      Options = []
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 17
+      VisibleButtons = [nbInsert, nbDelete, nbPost, nbCancel]
+    end
+    object DBComboBox1: TDBComboBox
+      Left = 264
+      Height = 21
+      Top = 125
+      Width = 111
+      DataField = 'MOVLANC'
+      DataSource = dsLancamento
+      ItemHeight = 13
+      Items.Strings = (
+        '01 Boleta'
+        '02 Vendedor'
+        '03 Depósito'
+        '04 Cheque'
+        '05 Registrada'
+      )
+      MaxLength = 0
+      OnKeyPress = DBEdit1KeyPress
+      TabOrder = 14
+    end
+  end
+  object TFornecedores: TIBTable
+    Database = FPrincipal.BasePrincipal
+    Transaction = FPrincipal.IBTransaction1
+    BufferChunks = 1000
+    CachedUpdates = False
+    DataSetCloseAction = dcDiscardChanges
+    TableName = 'FORNECEDORES'
+    left = 40
+    top = 168
+    object TFornecedoresCODFORN: TIntegerField
+      FieldKind = fkData
+      FieldName = 'CODFORN'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TFornecedoresCODCID: TIntegerField
+      FieldKind = fkData
+      FieldName = 'CODCID'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TFornecedoresCODEST: TIntegerField
+      FieldKind = fkData
+      FieldName = 'CODEST'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TFornecedoresDOCFORN: TIBStringField
+      FieldKind = fkData
+      FieldName = 'DOCFORN'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TFornecedoresNOMEFORN: TIBStringField
+      FieldKind = fkData
+      FieldName = 'NOMEFORN'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 40
+    end
+    object TFornecedoresRAZAOSFORN: TIBStringField
+      FieldKind = fkData
+      FieldName = 'RAZAOSFORN'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 40
+    end
+    object TFornecedoresENDERECOFORN: TIBStringField
+      FieldKind = fkData
+      FieldName = 'ENDERECOFORN'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 40
+    end
+    object TFornecedoresBAIRROFORN: TIBStringField
+      FieldKind = fkData
+      FieldName = 'BAIRROFORN'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 40
+    end
+    object TFornecedoresCEPFORN: TIBStringField
+      FieldKind = fkData
+      FieldName = 'CEPFORN'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 10
+    end
+    object TFornecedoresFONEFORN: TIBStringField
+      FieldKind = fkData
+      FieldName = 'FONEFORN'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 15
+    end
+    object TFornecedoresCELULARFORN: TIBStringField
+      FieldKind = fkData
+      FieldName = 'CELULARFORN'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 15
+    end
+    object TFornecedoresEMAILFORN: TIBStringField
+      FieldKind = fkData
+      FieldName = 'EMAILFORN'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 40
+    end
+    object TFornecedoresSITEFORN: TIBStringField
+      FieldKind = fkData
+      FieldName = 'SITEFORN'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 80
+    end
+    object TFornecedoresTIPOFORN: TIBStringField
+      FieldKind = fkData
+      FieldName = 'TIPOFORN'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object TPlanoContN1: TIBTable
+    BufferChunks = 1000
+    CachedUpdates = False
+    DataSetCloseAction = dcDiscardChanges
+    TableName = 'PLANO_CONTA_N1'
+    left = 112
+    top = 168
+    object TPlanoContN1CODPCN1: TIntegerField
+      FieldKind = fkData
+      FieldName = 'CODPCN1'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TPlanoContN1DESCPCN1: TIBStringField
+      FieldKind = fkData
+      FieldName = 'DESCPCN1'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 40
+    end
+    object TPlanoContN1EMPCPN1: TIBStringField
+      FieldKind = fkData
+      FieldName = 'EMPCPN1'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 40
+    end
+    object TPlanoContN1CODIGOPCN1: TIntegerField
+      FieldKind = fkData
+      FieldName = 'CODIGOPCN1'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object TPlanoContN2: TIBTable
+    BufferChunks = 1000
+    CachedUpdates = False
+    DataSetCloseAction = dcDiscardChanges
+    TableName = 'PLANO_CONTA_N2'
+    left = 194
+    top = 168
+    object TPlanoContN2CODPCN2: TIntegerField
+      FieldKind = fkData
+      FieldName = 'CODPCN2'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TPlanoContN2DESCPCN2: TIBStringField
+      FieldKind = fkData
+      FieldName = 'DESCPCN2'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 40
+    end
+    object TPlanoContN2EMPCPN2: TIBStringField
+      FieldKind = fkData
+      FieldName = 'EMPCPN2'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 40
+    end
+    object TPlanoContN2CODPCN1: TIntegerField
+      FieldKind = fkData
+      FieldName = 'CODPCN1'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TPlanoContN2CODIGOPCN2: TIntegerField
+      FieldKind = fkData
+      FieldName = 'CODIGOPCN2'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object TLancamento: TIBTable
+    BufferChunks = 1000
+    CachedUpdates = False
+    DataSetCloseAction = dcDiscardChanges
+    TableName = 'LANCAMENTO'
+    left = 324
+    top = 164
+    object TLancamentoCODLANC: TIntegerField
+      FieldKind = fkData
+      FieldName = 'CODLANC'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TLancamentoCODPCN1: TIntegerField
+      FieldKind = fkData
+      FieldName = 'CODPCN1'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TLancamentoCODPCN2: TIntegerField
+      FieldKind = fkData
+      FieldName = 'CODPCN2'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TLancamentoCODFORN: TIntegerField
+      FieldKind = fkData
+      FieldName = 'CODFORN'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TLancamentoNFLANC: TIntegerField
+      FieldKind = fkData
+      FieldName = 'NFLANC'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TLancamentoEMISLANC: TDateField
+      FieldKind = fkData
+      FieldName = 'EMISLANC'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      EditMask = '!99/99/0000;1;_'
+    end
+    object TLancamentoVENCLANC: TDateField
+      FieldKind = fkData
+      FieldName = 'VENCLANC'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      EditMask = '!99/99/0000;1;_'
+    end
+    object TLancamentoVLLANC: TIBBCDField
+      FieldKind = fkData
+      FieldName = 'VLLANC'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Precision = 18
+      Currency = False
+      MaxValue = 0
+      MinValue = 0
+      Size = 4
+    end
+    object TLancamentoPARCLANC: TIntegerField
+      FieldKind = fkData
+      FieldName = 'PARCLANC'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TLancamentoDESDLANC: TIntegerField
+      FieldKind = fkData
+      FieldName = 'DESDLANC'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TLancamentoPRELANC: TIBStringField
+      FieldKind = fkData
+      FieldName = 'PRELANC'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1
+    end
+    object TLancamentoDESCLANC: TIBStringField
+      FieldKind = fkData
+      FieldName = 'DESCLANC'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 60
+    end
+    object TLancamentoOBSLANC: TMemoField
+      FieldKind = fkData
+      FieldName = 'OBSLANC'
+      Index = 12
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      BlobType = ftMemo
+      Transliterate = False
+    end
+    object TLancamentoMOVLANC: TIBStringField
+      FieldKind = fkData
+      FieldName = 'MOVLANC'
+      Index = 13
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object TLancamentoAUXLANC: TIBStringField
+      FieldKind = fkData
+      FieldName = 'AUXLANC'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object dsFornecedores: TDataSource
+    DataSet = TFornecedores
+    left = 40
+    top = 212
+  end
+  object dsPlanoContN1: TDataSource
+    DataSet = TPlanoContN1
+    left = 116
+    top = 213
+  end
+  object dsPlanoContN2: TDataSource
+    DataSet = TPlanoContN2
+    left = 194
+    top = 212
+  end
+  object dsLancamento: TDataSource
+    DataSet = TLancamento
+    left = 324
+    top = 208
+  end
+end

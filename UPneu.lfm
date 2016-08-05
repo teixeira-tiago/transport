@@ -1,0 +1,237 @@
+object FPneu: TFPneu
+  Left = 359
+  Top = 285
+  Width = 464
+  Height = 375
+  BorderIcons = [biSystemMenu]
+  Caption = 'Cadastro de Pneus'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  FormStyle = fsMDIChild
+  Position = poMainFormCenter
+  Visible = True
+  OnClose = FormClose
+  PixelsPerInch = 96
+  object PageControl1: TPageControl
+    Left = 0
+    Top = 0
+    Width = 456
+    Height = 348
+    ActivePage = TabSheet1
+    Align = alClient
+    TabOrder = 0
+    object TabSheet1: TTabSheet
+      Caption = 'Pneus'
+      object Label1: TLabel
+        Left = 12
+        Top = 11
+        Width = 39
+        Height = 13
+        Caption = 'Nº Série'
+        FocusControl = DBEdit1
+      end
+      object Label2: TLabel
+        Left = 21
+        Top = 37
+        Width = 30
+        Height = 13
+        Caption = 'Marca'
+        FocusControl = DBEdit2
+      end
+      object Label3: TLabel
+        Left = 226
+        Top = 5
+        Width = 58
+        Height = 13
+        Caption = 'Observação'
+        FocusControl = DBMemo1
+      end
+      object Label4: TLabel
+        Left = 11
+        Top = 63
+        Width = 40
+        Height = 13
+        Caption = 'Garantia'
+        FocusControl = DBEdit3
+      end
+      object Label5: TLabel
+        Left = 27
+        Top = 90
+        Width = 24
+        Height = 13
+        Caption = 'Valor'
+        FocusControl = DBEdit4
+      end
+      object Panel1: TPanel
+        Left = 0
+        Top = 160
+        Width = 448
+        Height = 160
+        Align = alBottom
+        TabOrder = 0
+        object DBGrid1: TDBGrid
+          Left = 1
+          Top = 1
+          Width = 446
+          Height = 158
+          Align = alClient
+          DataSource = DataSource1
+          TabOrder = 0
+          TitleFont.Charset = DEFAULT_CHARSET
+          TitleFont.Color = clWindowText
+          TitleFont.Height = -11
+          TitleFont.Name = 'MS Sans Serif'
+          TitleFont.Style = []
+          Columns = <
+            item
+              Expanded = False
+              FieldName = 'NSPNEU'
+              Title.Caption = 'Nº de Série'
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'MARCAPNEU'
+              Title.Caption = 'Marca'
+              Width = 210
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'VALORPNEU'
+              Title.Caption = 'Valor'
+              Width = 75
+              Visible = True
+            end>
+        end
+      end
+      object Panel2: TPanel
+        Left = 0
+        Top = 119
+        Width = 448
+        Height = 41
+        Align = alBottom
+        TabOrder = 1
+        object DBNavigator1: TDBNavigator
+          Left = 174
+          Top = 8
+          Width = 100
+          Height = 25
+          DataSource = DataSource1
+          VisibleButtons = [nbInsert, nbDelete, nbPost, nbCancel]
+          Hints.Strings = (
+            'Primeiro Registro'
+            'Registro Anterior'
+            'Registro Seguinte'
+            'Ultimo Registro'
+            'Incluir Registro'
+            'Excluir Registro'
+            'Editar Registro'
+            'Gravar Registro'
+            'Cancelar Operação'
+            'Atualizar')
+          ParentShowHint = False
+          ShowHint = True
+          TabOrder = 0
+        end
+        object BitBtn1: TBitBtn
+          Left = 280
+          Top = 8
+          Width = 75
+          Height = 25
+          Caption = 'Fechar'
+          TabOrder = 1
+          Kind = bkClose
+        end
+      end
+      object DBEdit1: TDBEdit
+        Left = 54
+        Top = 8
+        Width = 168
+        Height = 21
+        DataField = 'NSPNEU'
+        DataSource = DataSource1
+        TabOrder = 2
+        OnKeyPress = DBEdit1KeyPress
+      end
+      object DBEdit2: TDBEdit
+        Left = 54
+        Top = 33
+        Width = 168
+        Height = 21
+        DataField = 'MARCAPNEU'
+        DataSource = DataSource1
+        TabOrder = 3
+        OnKeyPress = DBEdit1KeyPress
+      end
+      object DBMemo1: TDBMemo
+        Left = 226
+        Top = 19
+        Width = 217
+        Height = 89
+        DataField = 'OBSPNEU'
+        DataSource = DataSource1
+        ScrollBars = ssVertical
+        TabOrder = 4
+      end
+      object DBEdit3: TDBEdit
+        Left = 54
+        Top = 59
+        Width = 168
+        Height = 21
+        DataField = 'GARANPNEU'
+        DataSource = DataSource1
+        TabOrder = 5
+        OnKeyPress = DBEdit1KeyPress
+      end
+      object DBEdit4: TDBEdit
+        Left = 54
+        Top = 86
+        Width = 168
+        Height = 21
+        DataField = 'VALORPNEU'
+        DataSource = DataSource1
+        TabOrder = 6
+        OnKeyPress = DBEdit1KeyPress
+      end
+    end
+  end
+  object TPneu: TSQLQuery
+    Database = FPrincipal.BasePrincipal
+    Transaction = FPrincipal.IBTransaction1
+    Left = 256
+    Top = 224
+    object TPneuCODPNEU: TIntegerField
+      FieldName = 'CODPNEU'
+    end
+    object TPneuNSPNEU: TIBStringField
+      FieldName = 'NSPNEU'
+    end
+    object TPneuMARCAPNEU: TIBStringField
+      FieldName = 'MARCAPNEU'
+      Size = 50
+    end
+    object TPneuOBSPNEU: TMemoField
+      FieldName = 'OBSPNEU'
+      BlobType = ftMemo
+    end
+    object TPneuVALORPNEU: TIBBCDField
+      FieldName = 'VALORPNEU'
+      Precision = 18
+      Size = 2
+    end
+    object TPneuGARANPNEU: TIBStringField
+      FieldName = 'GARANPNEU'
+      Size = 30
+    end
+  end
+  object DataSource1: TDataSource
+    DataSet = TPneu
+    Left = 256
+    Top = 268
+  end
+end
